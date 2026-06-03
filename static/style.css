@@ -1,0 +1,64 @@
+body{
+    background:#f4f6f9;
+}
+
+.sidebar{
+
+    width:250px;
+
+    height:100vh;
+
+    position:fixed;
+
+    background:#1e293b;
+
+    left:0;
+
+    top:0;
+
+    padding:20px;
+}
+
+.sidebar h3{
+    color:white;
+    margin-bottom:30px;
+}
+
+.sidebar a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+}
+
+.sidebar a:hover{
+    background:#334155;
+}
+
+.main{
+
+    margin-left:270px;
+
+    padding:30px;
+}
+
+#dropzone{
+
+    background:white;
+
+    border:3px dashed #3b82f6;
+
+    border-radius:20px;
+
+    padding:80px;
+
+    text-align:center;
+}

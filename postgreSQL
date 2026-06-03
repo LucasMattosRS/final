@@ -1,0 +1,17 @@
+CREATE TABLE processamentos (
+    id SERIAL PRIMARY KEY,
+
+    obra VARCHAR(50),
+
+    arquivo VARCHAR(255),
+
+    data_processamento TIMESTAMP,
+
+    total_pontos INTEGER,
+
+    aprovados INTEGER,
+
+    revisar INTEGER,
+
+    criticos INTEGER
+);

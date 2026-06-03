@@ -1,0 +1,10 @@
+from main import process_pdf
+
+
+def test_quantidade_pontos():
+
+    resultado = process_pdf(
+        "tests/pdfs/pdf_teste.pdf"
+    )
+
+    assert len(resultado) == 42

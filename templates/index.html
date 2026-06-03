@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Processar PDF</h1>
+
+<div id="dropzone">
+
+<i class="bi bi-cloud-upload fs-1"></i>
+
+<h3>Arraste ou selecione um PDF</h3>
+
+<input
+type="file"
+id="fileInput"
+accept=".pdf">
+
+</div>
+
+<br>
+
+<button
+id="btnProcessar"
+type="button"
+class="btn btn-primary"
+onclick="enviarPDF()">
+
+Processar
+
+</button>
+
+<br><br>
+
+<div class="progress">
+
+<div
+id="barra"
+class="progress-bar"
+style="width:0%">
+
+0%
+
+</div>
+
+</div>
+
+<br>
+
+<div id="status"></div>
+
+{% endblock %}

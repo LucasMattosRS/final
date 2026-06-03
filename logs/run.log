@@ -1,0 +1,2211 @@
+2026-06-02 08:50:08 INFO     Obras encontradas: 9 | PDFs totais: 9
+2026-06-02 08:50:08 INFO     === Processando obra 14944161 (1 PDF(s)) ===
+2026-06-02 08:50:08 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 08:50:08 INFO       P/V encontrados: 8
+2026-06-02 08:50:08 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\14944161_Desenho 1_3.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:08 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx
+2026-06-02 08:50:08 INFO       Excel gerado: 14944161.xlsx (0 registros)
+2026-06-02 08:50:08 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 08:50:08 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 08:50:09 INFO       P/V encontrados: 9
+2026-06-02 08:50:09 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16794910_Desenho 1_2.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:09 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx
+2026-06-02 08:50:09 INFO       Excel gerado: 16794910.xlsx (0 registros)
+2026-06-02 08:50:09 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 08:50:09 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 08:50:09 INFO       P/V encontrados: 34
+2026-06-02 08:50:09 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16813660_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:09 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx
+2026-06-02 08:50:09 INFO       Excel gerado: 16813660.xlsx (0 registros)
+2026-06-02 08:50:09 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 08:50:09 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 08:50:10 INFO       P/V encontrados: 26
+2026-06-02 08:50:10 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17064027_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:10 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx
+2026-06-02 08:50:10 INFO       Excel gerado: 17064027.xlsx (0 registros)
+2026-06-02 08:50:10 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 08:50:10 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 08:50:10 INFO       P/V encontrados: 9
+2026-06-02 08:50:10 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176206_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:10 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx
+2026-06-02 08:50:10 INFO       Excel gerado: 17176206.xlsx (0 registros)
+2026-06-02 08:50:10 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 08:50:10 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 08:50:11 INFO       P/V encontrados: 7
+2026-06-02 08:50:11 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176207_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:11 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx
+2026-06-02 08:50:11 INFO       Excel gerado: 17176207.xlsx (0 registros)
+2026-06-02 08:50:11 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 08:50:11 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 08:50:11 INFO       P/V encontrados: 11
+2026-06-02 08:50:11 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176228_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:11 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx
+2026-06-02 08:50:11 INFO       Excel gerado: 17176228.xlsx (0 registros)
+2026-06-02 08:50:11 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 08:50:11 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 08:50:11 INFO       P/V encontrados: 15
+2026-06-02 08:50:11 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176272_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:11 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx
+2026-06-02 08:50:11 INFO       Excel gerado: 17176272.xlsx (0 registros)
+2026-06-02 08:50:11 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 08:50:11 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 08:50:12 INFO       P/V encontrados: 12
+2026-06-02 08:50:12 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176277_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:12 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx
+2026-06-02 08:50:12 INFO       Excel gerado: 17176277.xlsx (0 registros)
+2026-06-02 08:50:33 INFO     Obras encontradas: 9 | PDFs totais: 9
+2026-06-02 08:50:33 INFO     === Processando obra 14944161 (1 PDF(s)) ===
+2026-06-02 08:50:33 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 08:50:33 INFO       P/V encontrados: 8
+2026-06-02 08:50:33 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\14944161_Desenho 1_3.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:33 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx
+2026-06-02 08:50:33 INFO       Excel gerado: 14944161.xlsx (0 registros)
+2026-06-02 08:50:33 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 08:50:33 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 08:50:33 INFO       P/V encontrados: 9
+2026-06-02 08:50:33 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16794910_Desenho 1_2.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:33 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx
+2026-06-02 08:50:33 INFO       Excel gerado: 16794910.xlsx (0 registros)
+2026-06-02 08:50:33 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 08:50:33 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 08:50:34 INFO       P/V encontrados: 34
+2026-06-02 08:50:34 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16813660_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:34 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx
+2026-06-02 08:50:34 INFO       Excel gerado: 16813660.xlsx (0 registros)
+2026-06-02 08:50:34 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 08:50:34 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 08:50:35 INFO       P/V encontrados: 26
+2026-06-02 08:50:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17064027_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx
+2026-06-02 08:50:35 INFO       Excel gerado: 17064027.xlsx (0 registros)
+2026-06-02 08:50:35 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 08:50:35 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 08:50:35 INFO       P/V encontrados: 9
+2026-06-02 08:50:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176206_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx
+2026-06-02 08:50:35 INFO       Excel gerado: 17176206.xlsx (0 registros)
+2026-06-02 08:50:35 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 08:50:35 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 08:50:35 INFO       P/V encontrados: 7
+2026-06-02 08:50:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176207_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx
+2026-06-02 08:50:35 INFO       Excel gerado: 17176207.xlsx (0 registros)
+2026-06-02 08:50:35 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 08:50:35 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 08:50:36 INFO       P/V encontrados: 11
+2026-06-02 08:50:36 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176228_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:36 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx
+2026-06-02 08:50:36 INFO       Excel gerado: 17176228.xlsx (0 registros)
+2026-06-02 08:50:36 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 08:50:36 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 08:50:36 INFO       P/V encontrados: 15
+2026-06-02 08:50:36 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176272_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:36 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx
+2026-06-02 08:50:36 INFO       Excel gerado: 17176272.xlsx (0 registros)
+2026-06-02 08:50:36 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 08:50:36 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 08:50:36 INFO       P/V encontrados: 12
+2026-06-02 08:50:36 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176277_Desenho 1_1.pdf: Unable to get page count. Is poppler installed and in PATH?
+Traceback (most recent call last):
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Satel SP\AppData\Local\Python\pythoncore-3.14-64\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 28, in pdf_page_to_image
+    imgs = convert_from_path(
+        pdf_path,
+    ...<3 lines>...
+        fmt="png",
+    )
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ~~~~~~~~~~~~~~~~~^
+        pdf_path, userpw, ownerpw, poppler_path=poppler_path
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )["Pages"]
+    ^
+  File "C:\Users\Satel SP\Desktop\proj_v3\.venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+        "Unable to get page count. Is poppler installed and in PATH?"
+    )
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-06-02 08:50:36 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx
+2026-06-02 08:50:36 INFO       Excel gerado: 17176277.xlsx (0 registros)
+2026-06-02 08:56:34 INFO     Obras encontradas: 9 | PDFs totais: 9
+2026-06-02 08:56:34 INFO     === Processando obra 14944161 (1 PDF(s)) ===
+2026-06-02 08:56:34 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 08:56:35 INFO       P/V encontrados: 8
+2026-06-02 08:56:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\14944161_Desenho 1_3.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx
+2026-06-02 08:56:35 INFO       Excel gerado: 14944161.xlsx (0 registros)
+2026-06-02 08:56:35 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 08:56:35 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 08:56:35 INFO       P/V encontrados: 9
+2026-06-02 08:56:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16794910_Desenho 1_2.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx
+2026-06-02 08:56:35 INFO       Excel gerado: 16794910.xlsx (0 registros)
+2026-06-02 08:56:35 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 08:56:35 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 08:56:35 INFO       P/V encontrados: 34
+2026-06-02 08:56:35 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16813660_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:35 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx
+2026-06-02 08:56:35 INFO       Excel gerado: 16813660.xlsx (0 registros)
+2026-06-02 08:56:35 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 08:56:35 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 08:56:36 INFO       P/V encontrados: 26
+2026-06-02 08:56:36 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17064027_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:36 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx
+2026-06-02 08:56:36 INFO       Excel gerado: 17064027.xlsx (0 registros)
+2026-06-02 08:56:36 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 08:56:36 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 08:56:37 INFO       P/V encontrados: 9
+2026-06-02 08:56:37 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176206_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:37 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx
+2026-06-02 08:56:37 INFO       Excel gerado: 17176206.xlsx (0 registros)
+2026-06-02 08:56:37 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 08:56:37 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 08:56:37 INFO       P/V encontrados: 7
+2026-06-02 08:56:37 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176207_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:37 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx
+2026-06-02 08:56:37 INFO       Excel gerado: 17176207.xlsx (0 registros)
+2026-06-02 08:56:37 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 08:56:37 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 08:56:37 INFO       P/V encontrados: 11
+2026-06-02 08:56:37 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176228_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:37 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx
+2026-06-02 08:56:37 INFO       Excel gerado: 17176228.xlsx (0 registros)
+2026-06-02 08:56:37 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 08:56:37 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 08:56:37 INFO       P/V encontrados: 15
+2026-06-02 08:56:37 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176272_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:37 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx
+2026-06-02 08:56:37 INFO       Excel gerado: 17176272.xlsx (0 registros)
+2026-06-02 08:56:37 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 08:56:37 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 08:56:38 INFO       P/V encontrados: 12
+2026-06-02 08:56:38 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176277_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:38 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx
+2026-06-02 08:56:38 INFO       Excel gerado: 17176277.xlsx (0 registros)
+2026-06-02 08:56:47 INFO     Obras encontradas: 9 | PDFs totais: 9
+2026-06-02 08:56:47 INFO     === Processando obra 14944161 (1 PDF(s)) ===
+2026-06-02 08:56:47 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 08:56:48 INFO       P/V encontrados: 8
+2026-06-02 08:56:48 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\14944161_Desenho 1_3.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:48 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx
+2026-06-02 08:56:48 INFO       Excel gerado: 14944161.xlsx (0 registros)
+2026-06-02 08:56:48 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 08:56:48 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 08:56:48 INFO       P/V encontrados: 9
+2026-06-02 08:56:48 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16794910_Desenho 1_2.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:48 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx
+2026-06-02 08:56:48 INFO       Excel gerado: 16794910.xlsx (0 registros)
+2026-06-02 08:56:48 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 08:56:48 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 08:56:49 INFO       P/V encontrados: 34
+2026-06-02 08:56:49 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\16813660_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:49 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx
+2026-06-02 08:56:49 INFO       Excel gerado: 16813660.xlsx (0 registros)
+2026-06-02 08:56:49 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 08:56:49 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 08:56:50 INFO       P/V encontrados: 26
+2026-06-02 08:56:50 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17064027_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:50 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx
+2026-06-02 08:56:50 INFO       Excel gerado: 17064027.xlsx (0 registros)
+2026-06-02 08:56:50 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 08:56:50 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 08:56:50 INFO       P/V encontrados: 9
+2026-06-02 08:56:50 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176206_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:50 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx
+2026-06-02 08:56:50 INFO       Excel gerado: 17176206.xlsx (0 registros)
+2026-06-02 08:56:50 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 08:56:50 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 08:56:50 INFO       P/V encontrados: 7
+2026-06-02 08:56:50 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176207_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:50 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx
+2026-06-02 08:56:50 INFO       Excel gerado: 17176207.xlsx (0 registros)
+2026-06-02 08:56:50 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 08:56:50 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 08:56:51 INFO       P/V encontrados: 11
+2026-06-02 08:56:51 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176228_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:51 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx
+2026-06-02 08:56:51 INFO       Excel gerado: 17176228.xlsx (0 registros)
+2026-06-02 08:56:51 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 08:56:51 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 08:56:51 INFO       P/V encontrados: 15
+2026-06-02 08:56:51 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176272_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:51 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx
+2026-06-02 08:56:51 INFO       Excel gerado: 17176272.xlsx (0 registros)
+2026-06-02 08:56:51 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 08:56:51 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 08:56:51 INFO       P/V encontrados: 12
+2026-06-02 08:56:51 ERROR      Erro ao processar c:\Users\Satel SP\Desktop\proj_v3\input_pdf\17176277_Desenho 1_1.pdf: 'PdfPage' object has no attribute 'render_topil'
+Traceback (most recent call last):
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 172, in main
+    parcial = process_pdf(pdf_path)
+  File "c:\Users\Satel SP\Desktop\proj_v3\main.py", line 79, in process_pdf
+    images = pdf_page_to_image(pdf_path, pages=[0])
+  File "c:\Users\Satel SP\Desktop\proj_v3\src\pdf_to_image.py", line 36, in pdf_page_to_image
+    pil_img = page.render_topil(scale=scale)
+              ^^^^^^^^^^^^^^^^^
+AttributeError: 'PdfPage' object has no attribute 'render_topil'
+2026-06-02 08:56:51 WARNING  Sem dados para exportar em c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx
+2026-06-02 08:56:51 INFO       Excel gerado: 17176277.xlsx (0 registros)
+2026-06-02 08:58:42 INFO     Obras encontradas: 9 | PDFs totais: 9
+2026-06-02 08:58:42 INFO     === Processando obra 14944161 (1 PDF(s)) ===
+2026-06-02 08:58:42 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 08:58:43 INFO       P/V encontrados: 8
+2026-06-02 08:58:43 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx (8 linhas)
+2026-06-02 08:58:43 INFO       Excel gerado: 14944161.xlsx (8 registros)
+2026-06-02 08:58:43 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 08:58:43 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 08:58:44 INFO       P/V encontrados: 9
+2026-06-02 08:58:44 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 08:58:44 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 08:58:44 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 08:58:44 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 08:58:45 INFO       P/V encontrados: 34
+2026-06-02 08:58:47 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 08:58:47 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 08:58:47 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 08:58:47 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 08:58:47 INFO       P/V encontrados: 26
+2026-06-02 08:58:48 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 08:58:48 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 08:58:48 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 08:58:48 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 08:58:49 INFO       P/V encontrados: 9
+2026-06-02 08:58:49 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 08:58:49 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 08:58:49 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 08:58:49 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 08:58:49 INFO       P/V encontrados: 7
+2026-06-02 08:58:50 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 08:58:50 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 08:58:50 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 08:58:50 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 08:58:50 INFO       P/V encontrados: 11
+2026-06-02 08:58:51 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 08:58:51 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 08:58:51 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 08:58:51 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 08:58:51 INFO       P/V encontrados: 15
+2026-06-02 08:58:52 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 08:58:52 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 08:58:52 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 08:58:52 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 08:58:52 INFO       P/V encontrados: 12
+2026-06-02 08:58:53 INFO     Excel gerado: c:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 08:58:53 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 09:19:26 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:19:26 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 09:19:26 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 09:19:26 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:19:26 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 09:19:27 INFO       P/V encontrados: 8
+2026-06-02 09:19:28 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 09:19:28 INFO       P/V encontrados: 8
+2026-06-02 09:19:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 09:19:29 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 09:19:29 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 09:19:29 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 09:19:29 INFO       P/V encontrados: 9
+2026-06-02 09:19:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 09:19:29 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 09:19:29 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 09:19:29 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 09:19:30 INFO       P/V encontrados: 34
+2026-06-02 09:19:32 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 09:19:32 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 09:19:32 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 09:19:32 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 09:19:33 INFO       P/V encontrados: 26
+2026-06-02 09:19:34 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 09:19:34 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 09:19:34 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 09:19:34 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 09:19:34 INFO       P/V encontrados: 9
+2026-06-02 09:19:35 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 09:19:35 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 09:19:35 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 09:19:35 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 09:19:35 INFO       P/V encontrados: 7
+2026-06-02 09:19:36 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 09:19:36 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 09:19:36 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 09:19:36 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 09:19:36 INFO       P/V encontrados: 11
+2026-06-02 09:19:37 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 09:19:37 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 09:19:37 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 09:19:37 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 09:19:37 INFO       P/V encontrados: 15
+2026-06-02 09:19:38 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 09:19:38 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 09:19:38 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 09:19:38 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 09:19:39 INFO       P/V encontrados: 12
+2026-06-02 09:19:39 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 09:19:39 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 09:32:38 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:32:38 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 09:32:38 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 09:32:38 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:32:38 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 09:32:39 INFO       P/V encontrados: 8
+2026-06-02 09:32:39 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 09:32:40 INFO       P/V encontrados: 8
+2026-06-02 09:32:40 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 09:32:40 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 09:32:40 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 09:32:40 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 09:32:41 INFO       P/V encontrados: 9
+2026-06-02 09:32:41 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 09:32:41 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 09:32:41 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 09:32:41 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 09:32:42 INFO       P/V encontrados: 34
+2026-06-02 09:32:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 09:32:43 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 09:32:43 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 09:32:43 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 09:32:44 INFO       P/V encontrados: 26
+2026-06-02 09:32:45 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 09:32:45 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 09:32:45 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 09:32:45 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 09:32:45 INFO       P/V encontrados: 9
+2026-06-02 09:32:46 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 09:32:46 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 09:32:46 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 09:32:46 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 09:32:46 INFO       P/V encontrados: 7
+2026-06-02 09:32:47 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 09:32:47 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 09:32:47 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 09:32:47 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 09:32:47 INFO       P/V encontrados: 11
+2026-06-02 09:32:48 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 09:32:48 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 09:32:48 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 09:32:48 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 09:32:48 INFO       P/V encontrados: 15
+2026-06-02 09:32:49 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 09:32:49 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 09:32:49 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 09:32:49 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 09:32:49 INFO       P/V encontrados: 12
+2026-06-02 09:32:49 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 09:32:49 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 09:36:13 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:36:13 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 09:36:13 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 09:36:13 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 09:36:13 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 09:36:13 INFO       P/V encontrados: 8
+2026-06-02 09:36:14 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 09:36:14 INFO       P/V encontrados: 8
+2026-06-02 09:36:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 09:36:15 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 09:36:15 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 09:36:15 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 09:36:15 INFO       P/V encontrados: 9
+2026-06-02 09:36:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 09:36:15 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 09:36:15 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 09:36:15 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 09:36:16 INFO       P/V encontrados: 34
+2026-06-02 09:36:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 09:36:18 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 09:36:18 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 09:36:18 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 09:36:18 INFO       P/V encontrados: 26
+2026-06-02 09:36:19 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 09:36:19 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 09:36:19 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 09:36:19 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 09:36:20 INFO       P/V encontrados: 9
+2026-06-02 09:36:20 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 09:36:20 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 09:36:20 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 09:36:20 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 09:36:20 INFO       P/V encontrados: 7
+2026-06-02 09:36:21 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 09:36:21 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 09:36:21 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 09:36:21 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 09:36:21 INFO       P/V encontrados: 11
+2026-06-02 09:36:22 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 09:36:22 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 09:36:22 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 09:36:22 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 09:36:22 INFO       P/V encontrados: 15
+2026-06-02 09:36:23 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 09:36:23 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 09:36:23 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 09:36:23 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 09:36:23 INFO       P/V encontrados: 12
+2026-06-02 09:36:24 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 09:36:24 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 11:28:49 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 11:28:49 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 11:28:49 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 11:28:49 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 11:28:49 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 11:28:50 INFO       P/V encontrados: 8
+2026-06-02 11:28:50 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 11:28:51 INFO       P/V encontrados: 8
+2026-06-02 11:28:51 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 11:28:51 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 11:28:51 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 11:28:51 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 11:28:52 INFO       P/V encontrados: 9
+2026-06-02 11:28:52 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 11:28:52 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 11:28:52 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 11:28:52 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 11:28:53 INFO       P/V encontrados: 34
+2026-06-02 11:28:54 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 11:28:54 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 11:28:54 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 11:28:54 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 11:28:55 INFO       P/V encontrados: 26
+2026-06-02 11:28:56 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 11:28:56 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 11:28:56 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 11:28:56 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 11:28:56 INFO       P/V encontrados: 9
+2026-06-02 11:28:56 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 11:28:56 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 11:28:56 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 11:28:56 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 11:28:57 INFO       P/V encontrados: 7
+2026-06-02 11:28:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 11:28:57 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 11:28:57 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 11:28:57 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 11:28:58 INFO       P/V encontrados: 11
+2026-06-02 11:28:58 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 11:28:58 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 11:28:58 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 11:28:58 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 11:28:59 INFO       P/V encontrados: 15
+2026-06-02 11:28:59 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 11:28:59 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 11:28:59 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 11:28:59 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 11:28:59 INFO       P/V encontrados: 12
+2026-06-02 11:29:00 INFO     Excel gerado: C:\Users\Satel SP\Desktop\proj_v3\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 11:29:00 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 14:47:15 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:47:15 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 14:47:15 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 14:47:15 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:47:15 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 14:47:15 INFO       P/V encontrados: 8
+2026-06-02 14:47:16 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 14:47:17 INFO       P/V encontrados: 8
+2026-06-02 14:47:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 14:47:18 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 14:47:18 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 14:47:18 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 14:47:18 INFO       P/V encontrados: 9
+2026-06-02 14:47:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 14:47:18 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 14:47:18 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 14:47:18 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 14:47:19 INFO       P/V encontrados: 34
+2026-06-02 14:47:22 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 14:47:22 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 14:47:22 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 14:47:22 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 14:47:23 INFO       P/V encontrados: 26
+2026-06-02 14:47:24 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 14:47:24 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 14:47:24 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 14:47:24 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 14:47:24 INFO       P/V encontrados: 9
+2026-06-02 14:47:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 14:47:25 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 14:47:25 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 14:47:25 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 14:47:25 INFO       P/V encontrados: 7
+2026-06-02 14:47:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 14:47:25 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 14:47:25 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 14:47:25 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 14:47:26 INFO       P/V encontrados: 11
+2026-06-02 14:47:27 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 14:47:27 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 14:47:27 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 14:47:27 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 14:47:27 INFO       P/V encontrados: 15
+2026-06-02 14:47:28 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 14:47:28 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 14:47:28 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 14:47:28 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 14:47:28 INFO       P/V encontrados: 12
+2026-06-02 14:47:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 14:47:29 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 14:48:12 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:48:12 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 14:48:12 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 14:48:12 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:48:12 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 14:48:12 INFO       P/V encontrados: 8
+2026-06-02 14:48:13 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 14:48:14 INFO       P/V encontrados: 8
+2026-06-02 14:48:14 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 14:48:14 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 14:48:14 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 14:48:14 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 14:48:15 INFO       P/V encontrados: 9
+2026-06-02 14:48:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 14:48:15 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 14:48:15 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 14:48:15 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 14:48:16 INFO       P/V encontrados: 34
+2026-06-02 14:48:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 14:48:18 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 14:48:18 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 14:48:18 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 14:48:19 INFO       P/V encontrados: 26
+2026-06-02 14:48:21 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 14:48:21 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 14:48:21 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 14:48:21 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 14:48:21 INFO       P/V encontrados: 9
+2026-06-02 14:48:22 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 14:48:22 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 14:48:22 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 14:48:22 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 14:48:22 INFO       P/V encontrados: 7
+2026-06-02 14:48:22 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 14:48:22 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 14:48:22 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 14:48:22 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 14:48:23 INFO       P/V encontrados: 11
+2026-06-02 14:48:24 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 14:48:24 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 14:48:24 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 14:48:24 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 14:48:24 INFO       P/V encontrados: 15
+2026-06-02 14:48:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 14:48:25 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 14:48:25 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 14:48:25 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 14:48:26 INFO       P/V encontrados: 12
+2026-06-02 14:48:26 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 14:48:26 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 14:48:40 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:48:40 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 14:48:40 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 14:48:40 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:48:40 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 14:48:41 INFO       P/V encontrados: 8
+2026-06-02 14:48:42 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 14:48:42 INFO       P/V encontrados: 8
+2026-06-02 14:48:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 14:48:43 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 14:48:43 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 14:48:43 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 14:48:43 INFO       P/V encontrados: 9
+2026-06-02 14:48:44 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 14:48:44 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 14:48:44 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 14:48:44 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 14:48:45 INFO       P/V encontrados: 34
+2026-06-02 14:48:47 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 14:48:47 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 14:48:47 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 14:48:47 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 14:48:48 INFO       P/V encontrados: 26
+2026-06-02 14:48:49 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 14:48:49 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 14:48:49 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 14:48:49 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 14:48:49 INFO       P/V encontrados: 9
+2026-06-02 14:48:50 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 14:48:50 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 14:48:50 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 14:48:50 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 14:48:50 INFO       P/V encontrados: 7
+2026-06-02 14:48:50 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 14:48:50 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 14:48:50 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 14:48:50 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 14:48:51 INFO       P/V encontrados: 11
+2026-06-02 14:48:52 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 14:48:52 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 14:48:52 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 14:48:52 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 14:48:52 INFO       P/V encontrados: 15
+2026-06-02 14:48:53 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 14:48:53 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 14:48:53 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 14:48:53 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 14:48:53 INFO       P/V encontrados: 12
+2026-06-02 14:48:54 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 14:48:54 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 14:52:54 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:52:54 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 14:52:54 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 14:52:54 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 14:52:54 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 14:52:55 INFO       P/V encontrados: 8
+2026-06-02 14:52:55 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 14:52:56 INFO       P/V encontrados: 8
+2026-06-02 14:52:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 14:52:57 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 14:52:57 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 14:52:57 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 14:52:57 INFO       P/V encontrados: 9
+2026-06-02 14:52:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 14:52:57 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 14:52:57 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 14:52:57 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 14:52:58 INFO       P/V encontrados: 34
+2026-06-02 14:53:00 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 14:53:00 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 14:53:00 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 14:53:00 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 14:53:01 INFO       P/V encontrados: 26
+2026-06-02 14:53:02 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 14:53:02 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 14:53:02 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 14:53:02 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 14:53:02 INFO       P/V encontrados: 9
+2026-06-02 14:53:02 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 14:53:02 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 14:53:02 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 14:53:02 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 14:53:03 INFO       P/V encontrados: 7
+2026-06-02 14:53:03 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 14:53:03 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 14:53:03 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 14:53:03 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 14:53:04 INFO       P/V encontrados: 11
+2026-06-02 14:53:04 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 14:53:04 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 14:53:04 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 14:53:04 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 14:53:05 INFO       P/V encontrados: 15
+2026-06-02 14:53:05 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 14:53:05 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 14:53:05 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 14:53:05 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 14:53:06 INFO       P/V encontrados: 12
+2026-06-02 14:53:06 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 14:53:06 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 15:23:05 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 15:23:05 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 15:23:05 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 15:23:05 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 15:23:05 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 15:23:06 INFO       P/V encontrados: 8
+2026-06-02 15:23:07 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 15:23:08 INFO       P/V encontrados: 8
+2026-06-02 15:23:08 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 15:23:08 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 15:23:08 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 15:23:08 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 15:23:09 INFO       P/V encontrados: 9
+2026-06-02 15:23:09 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 15:23:09 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 15:23:09 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 15:23:09 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 15:23:10 INFO       P/V encontrados: 34
+2026-06-02 15:23:12 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 15:23:12 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 15:23:12 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 15:23:12 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 15:23:13 INFO       P/V encontrados: 26
+2026-06-02 15:23:14 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 15:23:14 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 15:23:14 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 15:23:14 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 15:23:14 INFO       P/V encontrados: 9
+2026-06-02 15:23:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 15:23:15 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 15:23:15 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 15:23:15 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 15:23:15 INFO       P/V encontrados: 7
+2026-06-02 15:23:16 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 15:23:16 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 15:23:16 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 15:23:16 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 15:23:16 INFO       P/V encontrados: 11
+2026-06-02 15:23:17 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 15:23:17 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 15:23:17 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 15:23:17 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 15:23:17 INFO       P/V encontrados: 15
+2026-06-02 15:23:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 15:23:18 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 15:23:18 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 15:23:18 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 15:23:18 INFO       P/V encontrados: 12
+2026-06-02 15:23:19 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 15:23:19 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-02 15:39:35 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 15:39:35 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-02 15:39:35 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-02 15:39:35 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-02 15:39:35 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-02 15:39:36 INFO       P/V encontrados: 8
+2026-06-02 15:39:37 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-02 15:39:37 INFO       P/V encontrados: 8
+2026-06-02 15:39:38 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-02 15:39:38 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-02 15:39:38 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-02 15:39:38 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-02 15:39:38 INFO       P/V encontrados: 9
+2026-06-02 15:39:38 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-02 15:39:38 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-02 15:39:38 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-02 15:39:38 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-02 15:39:39 INFO       P/V encontrados: 34
+2026-06-02 15:39:40 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-02 15:39:40 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-02 15:39:40 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-02 15:39:40 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-02 15:39:41 INFO       P/V encontrados: 26
+2026-06-02 15:39:42 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-02 15:39:42 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-02 15:39:42 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-02 15:39:42 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-02 15:39:42 INFO       P/V encontrados: 9
+2026-06-02 15:39:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-02 15:39:43 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-02 15:39:43 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-02 15:39:43 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-02 15:39:43 INFO       P/V encontrados: 7
+2026-06-02 15:39:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-02 15:39:43 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-02 15:39:43 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-02 15:39:43 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-02 15:39:44 INFO       P/V encontrados: 11
+2026-06-02 15:39:44 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-02 15:39:44 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-02 15:39:44 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-02 15:39:44 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-02 15:39:45 INFO       P/V encontrados: 15
+2026-06-02 15:39:45 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-02 15:39:45 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-02 15:39:45 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-02 15:39:45 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-02 15:39:46 INFO       P/V encontrados: 12
+2026-06-02 15:39:46 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-02 15:39:46 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 08:25:27 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:25:27 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 08:25:27 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 08:25:27 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:25:27 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 08:25:27 INFO       P/V encontrados: 8
+2026-06-03 08:25:28 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 08:25:29 INFO       P/V encontrados: 8
+2026-06-03 08:25:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 08:25:29 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 08:25:29 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 08:25:29 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 08:25:29 INFO       P/V encontrados: 9
+2026-06-03 08:25:30 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 08:25:30 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 08:25:30 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 08:25:30 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 08:25:30 INFO       P/V encontrados: 34
+2026-06-03 08:25:32 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 08:25:32 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 08:25:32 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 08:25:32 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 08:25:33 INFO       P/V encontrados: 26
+2026-06-03 08:25:34 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 08:25:34 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 08:25:34 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 08:25:34 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 08:25:34 INFO       P/V encontrados: 9
+2026-06-03 08:25:34 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 08:25:34 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 08:25:34 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 08:25:34 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 08:25:35 INFO       P/V encontrados: 7
+2026-06-03 08:25:35 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 08:25:35 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 08:25:35 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 08:25:35 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 08:25:35 INFO       P/V encontrados: 11
+2026-06-03 08:25:36 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-03 08:25:36 INFO       Excel gerado: 17176228.xlsx (11 registros)
+2026-06-03 08:25:36 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 08:25:36 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 08:25:36 INFO       P/V encontrados: 15
+2026-06-03 08:25:37 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 08:25:37 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 08:25:37 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 08:25:37 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 08:25:37 INFO       P/V encontrados: 12
+2026-06-03 08:25:38 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 08:25:38 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 08:39:02 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:39:03 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 08:39:03 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 08:39:03 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:39:03 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 08:39:03 INFO       P/V encontrados: 8
+2026-06-03 08:39:34 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 08:39:35 INFO       P/V encontrados: 8
+2026-06-03 08:40:07 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 08:40:07 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 08:40:07 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 08:40:07 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 08:40:07 INFO       P/V encontrados: 9
+2026-06-03 08:40:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 08:40:15 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 08:40:15 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 08:40:15 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 08:40:16 INFO       P/V encontrados: 34
+2026-06-03 08:40:52 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:40:52 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 08:40:52 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 08:40:52 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:40:52 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 08:40:52 INFO       P/V encontrados: 8
+2026-06-03 08:41:32 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:41:32 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 08:41:32 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 08:41:32 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:41:32 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 08:41:33 INFO       P/V encontrados: 8
+2026-06-03 08:41:37 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 08:41:37 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 08:41:37 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 08:41:37 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 08:41:38 INFO       P/V encontrados: 26
+2026-06-03 08:41:41 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 08:41:42 INFO       P/V encontrados: 8
+2026-06-03 08:44:03 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:44:03 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 08:44:03 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 08:44:03 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 08:44:03 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 08:44:04 INFO       P/V encontrados: 8
+2026-06-03 09:02:34 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:02:34 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:02:34 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:02:34 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:02:34 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:02:34 INFO       P/V encontrados: 8
+2026-06-03 09:03:06 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:03:07 INFO       P/V encontrados: 8
+2026-06-03 09:03:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:03:43 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:03:43 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:03:43 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:03:43 INFO       P/V encontrados: 9
+2026-06-03 09:03:52 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:03:52 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:03:52 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:03:52 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:03:53 INFO       P/V encontrados: 34
+2026-06-03 09:04:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 09:04:57 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 09:04:57 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 09:04:57 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 09:04:57 INFO       P/V encontrados: 26
+2026-06-03 09:05:00 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:05:00 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:05:00 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:05:00 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:05:00 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:05:00 INFO       P/V encontrados: 8
+2026-06-03 09:05:42 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:05:42 INFO       P/V encontrados: 8
+2026-06-03 09:06:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:06:25 INFO       Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:06:25 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:06:25 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:06:26 INFO       P/V encontrados: 9
+2026-06-03 09:06:28 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 09:06:28 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 09:06:28 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 09:06:28 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 09:06:28 INFO       P/V encontrados: 9
+2026-06-03 09:06:36 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:06:36 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:06:36 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:06:36 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:06:37 INFO       P/V encontrados: 34
+2026-06-03 09:06:54 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 09:06:54 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 09:06:54 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 09:06:54 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 09:06:54 INFO       P/V encontrados: 7
+2026-06-03 09:06:59 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:07:00 INFO       P/V encontrados: 8
+2026-06-03 09:07:09 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 09:07:09 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 09:07:09 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 09:07:09 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 09:07:09 INFO       P/V encontrados: 11
+2026-06-03 09:08:00 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 09:08:00 INFO       Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 09:08:00 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 09:08:00 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 09:08:01 INFO       P/V encontrados: 26
+2026-06-03 09:09:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 09:09:15 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 09:09:15 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 09:09:15 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 09:09:15 INFO       P/V encontrados: 9
+2026-06-03 09:09:20 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:09:20 INFO       P/V encontrados: 8
+2026-06-03 09:09:37 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 09:09:37 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 09:09:37 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 09:09:37 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 09:09:38 INFO       P/V encontrados: 7
+2026-06-03 09:09:51 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 09:09:51 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 09:09:51 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 09:09:51 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 09:09:51 INFO       P/V encontrados: 11
+2026-06-03 09:10:04 INFO     Excel gerado: output_excel\14944161.xlsx (8 linhas)
+2026-06-03 09:26:34 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:26:34 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:26:34 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:26:34 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:26:34 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:26:35 INFO       P/V encontrados: 8
+2026-06-03 09:27:15 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:27:15 INFO       P/V encontrados: 8
+2026-06-03 09:27:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:27:57 INFO     Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:27:57 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:27:57 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:27:58 INFO       P/V encontrados: 9
+2026-06-03 09:28:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:28:18 INFO     Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:28:18 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:28:18 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:28:19 INFO       P/V encontrados: 34
+2026-06-03 09:32:49 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:32:49 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:32:49 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:32:49 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:32:49 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:32:49 INFO       P/V encontrados: 8
+2026-06-03 09:33:53 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:33:53 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:33:53 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:33:53 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:33:53 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:33:53 INFO       P/V encontrados: 8
+2026-06-03 09:34:31 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:34:32 INFO       P/V encontrados: 8
+2026-06-03 09:35:09 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:35:09 INFO     Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:35:09 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:35:09 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:35:09 INFO       P/V encontrados: 9
+2026-06-03 09:35:18 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:35:18 INFO     Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:35:18 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:35:18 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:35:19 INFO       P/V encontrados: 34
+2026-06-03 09:36:31 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 09:36:31 INFO     Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 09:36:31 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 09:36:31 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 09:36:32 INFO       P/V encontrados: 26
+2026-06-03 09:38:56 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:38:56 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:38:56 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:38:56 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:38:56 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:38:56 INFO       P/V encontrados: 8
+2026-06-03 09:42:14 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:42:14 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:42:14 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:42:14 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:42:14 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:42:15 INFO       P/V encontrados: 8
+2026-06-03 09:42:15 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:42:16 INFO       P/V encontrados: 8
+2026-06-03 09:42:17 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:42:17 INFO     Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:42:17 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:42:17 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:42:17 INFO       P/V encontrados: 9
+2026-06-03 09:42:17 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:42:17 INFO     Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:42:17 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:42:17 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:42:18 INFO       P/V encontrados: 34
+2026-06-03 09:42:20 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 09:42:20 INFO     Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 09:42:20 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 09:42:20 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 09:42:21 INFO       P/V encontrados: 26
+2026-06-03 09:42:23 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 09:42:23 INFO     Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 09:42:23 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 09:42:23 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 09:42:23 INFO       P/V encontrados: 9
+2026-06-03 09:42:24 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 09:42:24 INFO     Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 09:42:24 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 09:42:24 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 09:42:24 INFO       P/V encontrados: 7
+2026-06-03 09:42:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 09:42:25 INFO     Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 09:42:25 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 09:42:25 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 09:42:25 INFO       P/V encontrados: 11
+2026-06-03 09:42:26 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-03 09:42:26 INFO     Excel gerado: 17176228.xlsx (11 registros)
+2026-06-03 09:42:26 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 09:42:26 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 09:42:26 INFO       P/V encontrados: 15
+2026-06-03 09:42:27 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 09:42:27 INFO     Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 09:42:27 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 09:42:27 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 09:42:28 INFO       P/V encontrados: 12
+2026-06-03 09:42:28 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 09:42:28 INFO     Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 09:42:28 INFO     Tokens nao reconhecidos nesta execucao: 157 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 09:42:28 INFO     Atualizando dicionario.json com tokens novos...
+2026-06-03 09:49:20 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:49:20 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 09:49:20 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 09:49:20 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 09:49:20 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 09:49:21 INFO       P/V encontrados: 8
+2026-06-03 09:49:21 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 09:49:22 INFO       P/V encontrados: 8
+2026-06-03 09:49:23 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 09:49:23 INFO     Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 09:49:23 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 09:49:23 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 09:49:23 INFO       P/V encontrados: 9
+2026-06-03 09:49:23 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 09:49:23 INFO     Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 09:49:23 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 09:49:23 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 09:49:24 INFO       P/V encontrados: 34
+2026-06-03 09:49:27 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 09:49:27 INFO     Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 09:49:27 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 09:49:27 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 09:49:28 INFO       P/V encontrados: 26
+2026-06-03 09:49:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 09:49:29 INFO     Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 09:49:29 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 09:49:29 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 09:49:29 INFO       P/V encontrados: 9
+2026-06-03 09:49:30 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 09:49:30 INFO     Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 09:49:30 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 09:49:30 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 09:49:30 INFO       P/V encontrados: 7
+2026-06-03 09:49:31 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 09:49:31 INFO     Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 09:49:31 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 09:49:31 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 09:49:31 INFO       P/V encontrados: 11
+2026-06-03 09:49:32 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-03 09:49:32 INFO     Excel gerado: 17176228.xlsx (11 registros)
+2026-06-03 09:49:32 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 09:49:32 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 09:49:33 INFO       P/V encontrados: 15
+2026-06-03 09:49:34 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 09:49:34 INFO     Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 09:49:34 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 09:49:34 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 09:49:34 INFO       P/V encontrados: 12
+2026-06-03 09:49:35 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 09:49:35 INFO     Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 09:49:35 INFO     Tokens nao reconhecidos nesta execucao: 154 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 09:49:35 INFO     Atualizando dicionario.json com tokens novos...
+2026-06-03 10:08:57 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 10:08:57 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 10:08:57 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 10:08:57 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 10:08:57 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 10:08:58 INFO       P/V encontrados: 8
+2026-06-03 10:08:59 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 10:08:59 INFO       P/V encontrados: 8
+2026-06-03 10:09:00 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-03 10:09:00 INFO     Excel gerado: 14944161.xlsx (16 registros)
+2026-06-03 10:09:00 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 10:09:00 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 10:09:00 INFO       P/V encontrados: 9
+2026-06-03 10:09:01 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 10:09:01 INFO     Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 10:09:01 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 10:09:01 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 10:09:02 INFO       P/V encontrados: 34
+2026-06-03 10:09:04 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (34 linhas)
+2026-06-03 10:09:04 INFO     Excel gerado: 16813660.xlsx (34 registros)
+2026-06-03 10:09:04 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 10:09:04 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 10:09:05 INFO       P/V encontrados: 26
+2026-06-03 10:09:06 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 10:09:06 INFO     Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 10:09:06 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 10:09:06 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 10:09:06 INFO       P/V encontrados: 9
+2026-06-03 10:09:07 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 10:09:07 INFO     Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 10:09:07 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 10:09:07 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 10:09:07 INFO       P/V encontrados: 7
+2026-06-03 10:09:08 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 10:09:08 INFO     Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 10:09:08 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 10:09:08 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 10:09:08 INFO       P/V encontrados: 11
+2026-06-03 10:09:09 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (11 linhas)
+2026-06-03 10:09:09 INFO     Excel gerado: 17176228.xlsx (11 registros)
+2026-06-03 10:09:09 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 10:09:09 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 10:09:09 INFO       P/V encontrados: 15
+2026-06-03 10:09:10 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 10:09:10 INFO     Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 10:09:10 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 10:09:10 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 10:09:11 INFO       P/V encontrados: 12
+2026-06-03 10:09:11 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 10:09:11 INFO     Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 10:09:11 INFO     Tokens nao reconhecidos nesta execucao: 154 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 10:09:11 INFO     Atualizando dicionario.json com tokens novos...

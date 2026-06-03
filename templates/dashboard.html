@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h5>PDFs Processados</h5>
+
+<h2>{{ total_pdf }}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h5>Excels Gerados</h5>
+
+<div class="col-md-4">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h5>Tempo Médio</h5>
+
+            <h2>{{ tempo_medio }} s</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<h2>{{ total_excel }}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
