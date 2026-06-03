@@ -2261,3 +2261,176 @@ AttributeError: 'PdfPage' object has no attribute 'render_topil'
 2026-06-03 10:50:24 INFO     Excel gerado: 17176277.xlsx (12 registros)
 2026-06-03 10:50:24 INFO     Tokens nao reconhecidos nesta execucao: 154 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
 2026-06-03 10:50:24 INFO     Atualizando dicionario.json com tokens novos...
+2026-06-03 13:38:25 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:38:25 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 13:38:25 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 13:38:25 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:38:25 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 13:38:25 INFO       P/V encontrados: 10
+2026-06-03 13:39:03 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 13:39:03 INFO       P/V encontrados: 10
+2026-06-03 13:39:43 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (20 linhas)
+2026-06-03 13:39:43 INFO       Excel gerado: 14944161.xlsx (20 registros)
+2026-06-03 13:39:43 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 13:39:43 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 13:39:44 INFO       P/V encontrados: 9
+2026-06-03 13:39:53 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 13:39:53 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 13:39:53 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 13:39:53 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 13:39:54 INFO       P/V encontrados: 30
+2026-06-03 13:41:02 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:41:02 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 13:41:02 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 13:41:02 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:41:02 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 13:41:02 INFO       P/V encontrados: 10
+2026-06-03 13:41:35 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 13:41:35 INFO       P/V encontrados: 10
+2026-06-03 13:42:09 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (20 linhas)
+2026-06-03 13:42:09 INFO       Excel gerado: 14944161.xlsx (20 registros)
+2026-06-03 13:42:09 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 13:42:09 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 13:42:09 INFO       P/V encontrados: 9
+2026-06-03 13:42:19 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 13:42:19 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 13:42:19 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 13:42:19 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 13:42:20 INFO       P/V encontrados: 30
+2026-06-03 13:43:39 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (30 linhas)
+2026-06-03 13:43:39 INFO       Excel gerado: 16813660.xlsx (30 registros)
+2026-06-03 13:43:39 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 13:43:39 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 13:43:40 INFO       P/V encontrados: 26
+2026-06-03 13:44:51 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 13:44:51 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 13:44:51 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 13:44:51 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 13:44:51 INFO       P/V encontrados: 9
+2026-06-03 13:45:10 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 13:45:10 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 13:45:10 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 13:45:10 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 13:45:10 INFO       P/V encontrados: 7
+2026-06-03 13:45:21 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 13:45:21 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 13:45:21 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 13:45:21 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 13:45:21 INFO       P/V encontrados: 13
+2026-06-03 13:45:52 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (13 linhas)
+2026-06-03 13:45:52 INFO       Excel gerado: 17176228.xlsx (13 registros)
+2026-06-03 13:45:52 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 13:45:52 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 13:45:53 INFO       P/V encontrados: 15
+2026-06-03 13:46:17 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 13:46:17 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 13:46:17 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 13:46:17 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 13:46:17 INFO       P/V encontrados: 12
+2026-06-03 13:46:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 13:46:29 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 13:46:29 INFO     Tokens nao reconhecidos nesta execucao: 92 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 13:50:08 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:50:08 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 13:50:08 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 13:50:08 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:50:08 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 13:50:08 INFO       P/V encontrados: 10
+2026-06-03 13:50:45 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 13:50:45 INFO       P/V encontrados: 10
+2026-06-03 13:51:20 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (20 linhas)
+2026-06-03 13:51:20 INFO       Excel gerado: 14944161.xlsx (20 registros)
+2026-06-03 13:51:20 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 13:51:20 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 13:51:20 INFO       P/V encontrados: 9
+2026-06-03 13:51:29 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 13:51:29 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 13:51:29 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 13:51:29 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 13:51:30 INFO       P/V encontrados: 30
+2026-06-03 13:52:36 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (30 linhas)
+2026-06-03 13:52:36 INFO       Excel gerado: 16813660.xlsx (30 registros)
+2026-06-03 13:52:36 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 13:52:36 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 13:52:37 INFO       P/V encontrados: 26
+2026-06-03 13:53:55 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 13:53:55 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 13:53:55 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 13:53:55 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 13:53:55 INFO       P/V encontrados: 9
+2026-06-03 13:54:14 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 13:54:14 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 13:54:14 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 13:54:14 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 13:54:15 INFO       P/V encontrados: 7
+2026-06-03 13:54:25 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 13:54:25 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 13:54:25 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 13:54:25 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 13:54:25 INFO       P/V encontrados: 13
+2026-06-03 13:54:57 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (13 linhas)
+2026-06-03 13:54:57 INFO       Excel gerado: 17176228.xlsx (13 registros)
+2026-06-03 13:54:57 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 13:54:57 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 13:54:57 INFO       P/V encontrados: 15
+2026-06-03 13:55:23 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 13:55:23 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 13:55:23 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 13:55:23 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 13:55:23 INFO       P/V encontrados: 12
+2026-06-03 13:55:35 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 13:55:35 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 13:55:35 INFO     Tokens nao reconhecidos nesta execucao: 92 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 13:55:35 INFO     Atualizando dicionario.json com tokens novos...
+2026-06-03 13:56:17 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:56:17 INFO     Obras encontradas: 9 | PDFs totais: 10
+2026-06-03 13:56:17 INFO     === Processando obra 14944161 (2 PDF(s)) ===
+2026-06-03 13:56:17 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-03 13:56:17 INFO       Lendo PDF: 14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-03 13:56:18 INFO       P/V encontrados: 10
+2026-06-03 13:56:51 INFO       Lendo PDF: 14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-03 13:56:51 INFO       P/V encontrados: 10
+2026-06-03 13:57:24 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (20 linhas)
+2026-06-03 13:57:24 INFO       Excel gerado: 14944161.xlsx (20 registros)
+2026-06-03 13:57:24 INFO     === Processando obra 16794910 (1 PDF(s)) ===
+2026-06-03 13:57:24 INFO       Lendo PDF: 16794910_Desenho 1_2.pdf (obra=16794910, folha=2)
+2026-06-03 13:57:24 INFO       P/V encontrados: 9
+2026-06-03 13:57:32 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16794910.xlsx (9 linhas)
+2026-06-03 13:57:32 INFO       Excel gerado: 16794910.xlsx (9 registros)
+2026-06-03 13:57:32 INFO     === Processando obra 16813660 (1 PDF(s)) ===
+2026-06-03 13:57:32 INFO       Lendo PDF: 16813660_Desenho 1_1.pdf (obra=16813660, folha=1)
+2026-06-03 13:57:32 INFO       P/V encontrados: 30
+2026-06-03 13:58:33 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16813660.xlsx (30 linhas)
+2026-06-03 13:58:33 INFO       Excel gerado: 16813660.xlsx (30 registros)
+2026-06-03 13:58:33 INFO     === Processando obra 17064027 (1 PDF(s)) ===
+2026-06-03 13:58:33 INFO       Lendo PDF: 17064027_Desenho 1_1.pdf (obra=17064027, folha=1)
+2026-06-03 13:58:34 INFO       P/V encontrados: 26
+2026-06-03 13:59:46 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17064027.xlsx (26 linhas)
+2026-06-03 13:59:46 INFO       Excel gerado: 17064027.xlsx (26 registros)
+2026-06-03 13:59:46 INFO     === Processando obra 17176206 (1 PDF(s)) ===
+2026-06-03 13:59:46 INFO       Lendo PDF: 17176206_Desenho 1_1.pdf (obra=17176206, folha=1)
+2026-06-03 13:59:46 INFO       P/V encontrados: 9
+2026-06-03 14:00:05 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176206.xlsx (9 linhas)
+2026-06-03 14:00:05 INFO       Excel gerado: 17176206.xlsx (9 registros)
+2026-06-03 14:00:05 INFO     === Processando obra 17176207 (1 PDF(s)) ===
+2026-06-03 14:00:05 INFO       Lendo PDF: 17176207_Desenho 1_1.pdf (obra=17176207, folha=1)
+2026-06-03 14:00:06 INFO       P/V encontrados: 7
+2026-06-03 14:00:15 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176207.xlsx (7 linhas)
+2026-06-03 14:00:15 INFO       Excel gerado: 17176207.xlsx (7 registros)
+2026-06-03 14:00:15 INFO     === Processando obra 17176228 (1 PDF(s)) ===
+2026-06-03 14:00:15 INFO       Lendo PDF: 17176228_Desenho 1_1.pdf (obra=17176228, folha=1)
+2026-06-03 14:00:16 INFO       P/V encontrados: 13
+2026-06-03 14:00:58 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176228.xlsx (13 linhas)
+2026-06-03 14:00:58 INFO       Excel gerado: 17176228.xlsx (13 registros)
+2026-06-03 14:00:58 INFO     === Processando obra 17176272 (1 PDF(s)) ===
+2026-06-03 14:00:58 INFO       Lendo PDF: 17176272_Desenho 1_1.pdf (obra=17176272, folha=1)
+2026-06-03 14:00:59 INFO       P/V encontrados: 15
+2026-06-03 14:01:33 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176272.xlsx (15 linhas)
+2026-06-03 14:01:33 INFO       Excel gerado: 17176272.xlsx (15 registros)
+2026-06-03 14:01:33 INFO     === Processando obra 17176277 (1 PDF(s)) ===
+2026-06-03 14:01:33 INFO       Lendo PDF: 17176277_Desenho 1_1.pdf (obra=17176277, folha=1)
+2026-06-03 14:01:33 INFO       P/V encontrados: 12
+2026-06-03 14:01:47 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\17176277.xlsx (12 linhas)
+2026-06-03 14:01:47 INFO       Excel gerado: 17176277.xlsx (12 registros)
+2026-06-03 14:01:47 INFO     Tokens nao reconhecidos nesta execucao: 92 — veja C:\Users\Satel SP\Desktop\final\logs\tokens_nao_reconhecidos.log
+2026-06-03 14:01:47 INFO     Atualizando dicionario.json com tokens novos...

@@ -233,6 +233,21 @@ def process_pdf(pdf_path: str) -> list[dict]:
     return resultado
 
 
+# ── Chamada automatica do atualizador de dicionario ──────────────────────────
+
+def atualizar_dicionario_pos_execucao() -> None:
+    """
+    Roda atualizar_dicionario.py --auto automaticamente apos processar todos os PDFs.
+    Tokens novos (score < 70) sao adicionados sem perguntar.
+    Tokens ambiguos (score >= 70) sao listados para revisao manual.
+    """
+    import subprocess
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atualizar_dicionario.py")
+    if not os.path.exists(script):
+        return
+    logger.info("Atualizando dicionario.json com tokens novos...")
+    subprocess.run([sys.executable, script, "--auto"], check=False)
+
 # ── Orquestrador principal ────────────────────────────────────────────────────
 
 def main() -> None:
@@ -278,18 +293,3 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-
-# ── Chamada automatica do atualizador de dicionario ──────────────────────────
-
-def atualizar_dicionario_pos_execucao() -> None:
-    """
-    Roda atualizar_dicionario.py --auto automaticamente apos processar todos os PDFs.
-    Tokens novos (score < 70) sao adicionados sem perguntar.
-    Tokens ambiguos (score >= 70) sao listados para revisao manual.
-    """
-    import subprocess
-    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atualizar_dicionario.py")
-    if not os.path.exists(script):
-        return
-    logger.info("Atualizando dicionario.json com tokens novos...")
-    subprocess.run([sys.executable, script, "--auto"], check=False)
