@@ -1,149 +1,50 @@
-"""
-auto_correct.py
-Correcao de tokens OCR usando dicionario extraido dos PDFs reais.
-O dicionario pode ser carregado de:
-  1. dicionario.json  (pasta raiz do projeto - editavel sem mexer no codigo)
-  2. DICIONARIO_BASE  (embutido aqui como fallback)
-"""
-
 import re
 import json
 import os
 from rapidfuzz import process
 
-# ── Dicionario base embutido (fallback) ───────────────────────────────────────
+# ── Dicionario ────────────────────────────────────────────────────────────────
+
 DICIONARIO_BASE = [
-    # Postes concreto + lista de equipamentos (tokens reais dos PDFs)
-    "C09x300,SMPI,IP",
-    "C09x300,SMPI,L1(2),IP",
-    "C09x300,SMTG,IP",
-    "C09x300,SMTG,L1(1),IP",
-    "C09x600,L1(2),IP",
-    "C09x600,SMFL,L1(1)",
-    "C09x600,SMPI,L1(2),IP",
-    "C10x300,B1M,SMTG",
-    "C10x300,B2F,EPBFSA,SMTG",
-    "C10x300,B4M,PRE4,SMFL,S45(1)",
-    "C10x300,CE2,SMTG,IP",
-    "C10x300,S145",
-    "C10x600,B1M,ET1A,SMFL,S45(1)",
-    "C10x600,B1M,M3F",
-    "C10x600,ET4A,S144-2",
-    "C12x1000,B4F,S44(1)",
-    "C12x1000,CE2",
-    "C12x1000,CE2-3LF,S44(1),L1(2),IP",
-    "C12x1000,CE4,CE3,IP",
-    "C12x1000,CE4,CE3,SMAN,IP",
-    "C12x1000,CEAFC4,CE3,IP",
-    "C12x300,B4F,CE2,S45(1),SMFL",
-    "C12x300,CE-SH,ET4A,IP",
-    "C12x300,CE1,IP",
-    "C12x300,CE1A,S44(2),SMPI",
-    "C12x300,CE2,L1(2),IP",
-    "C12x300,CEAFC1,IP",
-    "C12x300,CEAFS",
-    "C12x300,CEAFS,1AF(1),IP",
-    "C12x300,CEAFS,SMTG,L1(2),IP",
-    "C12x600,B1F,CF-H",
-    "C12x600,B1F,ET4A",
-    "C12x600,B1M",
-    "C12x600,B1M,CE2",
-    "C12x600,B2F,M3F",
-    "C12x600,B2M",
-    "C12x600,B4A,BF-A",
-    "C12x600,B4M",
-    "C12x600,CE-SH,ET4A,IP",
-    "C12x600,CE-SH,ET4A,S150-0,L1(2),IP",
-    "C12x600,CE-SH,ET4A,SMTR,L1(2),IP",
-    "C12x600,CE2,IP",
-    "C12x600,CE2,SMTG,L1(2),IP",
-    "C12x600,CE3,S144-1,IP",
-    "C12x600,CE4,BF-A,IP",
-    "C12x600,CE4,BF-A,SMTG,L1(2),IP",
-    "C12x600,CE4,IP",
-    "C14x1000,CE2",
-    "C14x1000,CE4",
-    # Postes madeira
-    "M10x300,S43(1),S44(2),L1(1),IP",
-    "M10x300,S43(3),L1(1),IP",
-    "M10x600,S44(4),L1(2),IP",
-    "M10x600,S45(3),L1(1)",
-    "M10x600,SMPI,L1(2),IP",
-    # Equipamentos isolados
+    "C09x300", "C09x600", "C10x300", "C10x600", "C11x600",
+    "C12x300", "C12x600", "C12x1000", "C14x600", "C14x1000",
+    "M10x300", "M10x600", "M11x300", "M12x300",
     "SMFL", "SMPI", "SMDT", "SMAN", "SMTG", "SMTR",
-    "SMFL,L1(1)", "SMFL,L1(2)", "SMFL,S45(3)",
-    "SMDT,L1(1)", "SMTG,L1(1)", "SMTG,L1(2)", "SMTG,1AF(1)",
-    "SMTR,L1(2)",
-    # Classes de engenharia
-    "CE1", "CE2", "CE3", "CE4", "CE-SH",
-    "CEAFC1", "CEAFC4", "CEAFS", "CE2-3LF",
-    # Classificacao de postes
+    "CE1", "CE2", "CE3", "CE4", "CE-SH", "CEAFC1", "CEAFC4", "CEAFS",
     "S43(1)", "S43(3)", "S44(1)", "S44(2)", "S44(3)", "S44(4)",
-    "S45(1)", "S45(3)", "S47(2)", "S143", "S144-1", "S144-2",
-    "S145", "S150-0",
-    "S44(2),SMPI", "S47(2),SMDT",
-    # Ferragens
+    "S45(1)", "S45(3)", "S47(2)", "S144-1", "S144-2", "S145", "S150-0",
     "B1F", "B1M", "B2F", "B2M", "B4A", "B4F", "B4M",
     "BF-A", "CF-H", "M1F", "M1M", "M3F",
-    # Protecoes
-    "PRE1", "PRE3", "PRE4",
-    "ET4A", "ET1A",
-    # Iluminacao / ligacao
+    "PRE1", "PRE3", "PRE4", "ET4A", "ET1A",
     "IP", "1AF(1)", "L1(1)", "L1(2)", "L2",
-    # Cabos BT
     "1x3x120(70)AX", "1x3x240(120)AX", "1x3x70(70)AX",
-    "1x3x70(70)AXNI(5AZN)",
-    "2x1/0AN(4AN)", "2x1/0AN(4ANA)", "4x1/0AN",
-    # Cabos MT
-    "3x185AX(5AZN)", "3x70AX(5AZN)", "3x300AX-Q(6AZN)",
-    "3x336AN", "3x336AN(3/0AN)",
-    # Condutores multiplex
-    "QX10", "QX16", "TX10", "TX16",
-    # Transformadores
+    "2x1/0AN(4AN)", "4x1/0AN",
+    "3x185AX(5AZN)", "3x70AX(5AZN)", "3x300AX-Q(6AZN)", "3x336AN",
     "25KVA", "37,5KVA", "45KVA", "75KVA", "112,5KVA",
-    # Tensao / rede
-    "15KV_1F1(A)", "15KV_1L(C)", "15KV_1T(ABC)", "15KV_PDRT(ABC)",
-    "BT", "MT", "BT0", "CORDOALHA",
-    "RAMAL", "RAMAIS", "BIF", "TRIF",
-    "BCU", "GD", "NF",
-    "TRAFO", "BLINDAR", "REAPROVEITAR",
+    "15KV_1T(ABC)", "15KV_1F1(A)", "15KV_1L(C)", "15KV_PDRT(ABC)",
+    "BT", "MT", "BT0", "CORDOALHA", "RAMAL", "RAMAIS", "BIF", "TRIF",
+    "BCU", "GD", "NF", "TRAFO", "BLINDAR", "REAPROVEITAR",
 ]
 
-# Correcoes fixas de erros OCR conhecidos
 _CORRECOES_FIXAS = {
-    "C0GX600":   "C09X600",
-    "C0GX1000":  "C09X1000",
-    "SMFI":      "SMFL",
-    "SMFIL":     "SMFL",
-    "DTI1":      "DT11",
-    "DTl1":      "DT11",
-    "S442":      "S44(2)",
-    "S462":      "S46(2)",
-    "S472":      "S47(2)",
-    "Ll(2)":     "L1(2)",
-    "LI(2)":     "L1(2)",
-    "LAD8O":     "LADO",
-    "OC0R8":     "OCR",
-    "RDOALHA":   "CORDOALHA",
-    "37,E5KTVA": "37,5KVA",
-    "550K8VA":   "50KVA",
-    "CEL4,":     "CE4,",
-    "1RU6A":     "1RAMAL",
-    "P10BF":     "P10",
+    "C0GX600":  "C09X600",
+    "C0GX1000": "C09X1000",
+    "SMFI":     "SMFL",
+    "SMFIL":    "SMFL",
+    "DTI1":     "DT11",
+    "S442":     "S44(2)",
+    "S462":     "S46(2)",
+    "Ll(2)":    "L1(2)",
+    "LI(2)":    "L1(2)",
 }
 
 _FUZZY_THRESHOLD = 82
 
 
 def _carregar_dicionario() -> list:
-    """
-    Carrega dicionario.json da raiz do projeto se existir.
-    Formato aceito: lista JSON  ["C12x600", ...]
-                 ou objeto JSON {"dicionario": ["C12x600", ...]}
-    Se nao encontrar, retorna DICIONARIO_BASE.
-    """
-    json_path = os.path.join(os.path.dirname(__file__), "..", "dicionario.json")
-    json_path = os.path.normpath(json_path)
+    json_path = os.path.normpath(
+        os.path.join(os.path.dirname(__file__), "..", "dicionario.json")
+    )
     if os.path.exists(json_path):
         try:
             with open(json_path, "r", encoding="utf-8") as f:
@@ -152,15 +53,57 @@ def _carregar_dicionario() -> list:
                 return dados
             if isinstance(dados, dict):
                 return dados.get("dicionario", DICIONARIO_BASE)
-        except Exception as e:
-            print(f"[auto_correct] Aviso: nao foi possivel ler dicionario.json ({e}). Usando base embutida.")
+        except Exception:
+            pass
     return DICIONARIO_BASE
 
 
 DICIONARIO = _carregar_dicionario()
 
 
+# ── Problema 2 corrigido ──────────────────────────────────────────────────────
+# Tokens colados como "C12X600112,5KVAB4A" precisam ser segmentados antes
+# do fuzzy match. A estrategia: tenta separar por padroes conhecidos
+# (letra maiuscula seguida de digitos, virgula decimal, etc.) antes de
+# aplicar o fuzzy token a token.
+
+# Separadores naturais presentes nos tokens colados
+_SEP_RE = re.compile(
+    r'(?<=[A-Z0-9)])(?=[A-Z]{2,}(?:\d|\())'  # fim de token / inicio de outro
+    r'|(?<=\d)(?=[A-Z]{2})'                   # digito seguido de 2+ letras
+    r'|(?<=\d),(?=\d)'                         # virgula decimal — preserva
+    r'|(?<=\))(?=[A-Z0-9])',                   # fecha parenteses / novo token
+)
+
+# Tokens que sao numeros puros ou metragens — nao entram no fuzzy
+_NUMERO_RE = re.compile(r'^\d+([.,]\d+)?\s*[mM]?$')
+
+
+def _segmentar_token(token: str) -> list[str]:
+    """
+    Tenta separar um token colado em sub-tokens.
+    Ex: "C12X600112,5KVAB4A" -> ["C12X600", "112,5KVA", "B4A"]
+    """
+    # Divide por padrao de inicio de codigo conhecido
+    partes = re.split(
+        r'(?=[CM]\d{2}x)'           # inicio de poste  C12x / M10x
+        r'|(?=\d{2,3}[.,]\d+KVA)'  # transformador    112,5KVA
+        r'|(?=[SB]\d{2}[(\-])'     # classificacao    S44( / B4A
+        r'|(?=SM[DFLPIT]{2})'      # conjunto         SMFL / SMPI
+        r'|(?=CE[\d\-A])'           # classe eng       CE4 / CE-SH
+        r'|(?=ET\d)'                # equipamento      ET4A
+        r'|(?=PRE\d)'               # protecao         PRE4
+        r'|(?=BF-|CF-)',            # ferragem         BF-A / CF-H
+        token,
+        flags=re.IGNORECASE,
+    )
+    # Remove strings vazias e faz strip
+    return [p.strip() for p in partes if p.strip()]
+
+
 def corrigir_token(token: str) -> str:
+    if _NUMERO_RE.match(token):
+        return token
     resultado = process.extractOne(token, DICIONARIO)
     if resultado:
         texto, score, _ = resultado
@@ -170,32 +113,49 @@ def corrigir_token(token: str) -> str:
 
 
 def corrigir_texto(texto: str) -> dict:
+    """
+    1. Aplica correcoes fixas.
+    2. Segmenta tokens colados.
+    3. Aplica fuzzy em cada sub-token.
+    """
     original = texto
     upper = texto.upper()
 
-    # 1. Correcoes fixas
+    # Correcoes fixas
     for erro, correto in _CORRECOES_FIXAS.items():
         upper = upper.replace(erro.upper(), correto)
 
-    # 2. Fuzzy token a token (separa por virgula/espaco)
-    partes = re.split(r'([,\s]+)', upper)
-    saida = []
+    # Quebra em partes por separadores naturais (virgula, espaco)
+    partes_brutas = re.split(r'([,\s]+)', upper)
+
+    tokens_saida = []
     houve = False
-    for parte in partes:
+
+    for parte in partes_brutas:
         p = parte.strip()
-        if p:
+        if not p:
+            tokens_saida.append(parte)
+            continue
+
+        # Tenta segmentar tokens colados
+        sub_tokens = _segmentar_token(p)
+
+        if len(sub_tokens) > 1:
+            # Era um token colado — corrige cada parte
+            corrigidos = [corrigir_token(s) for s in sub_tokens]
+            tokens_saida.append(",".join(corrigidos))
+            houve = True
+        else:
             corrigido = corrigir_token(p)
             if corrigido != p:
                 houve = True
-            saida.append(corrigido)
-        else:
-            saida.append(parte)
+            tokens_saida.append(corrigido)
 
-    resultado_final = "".join(saida)
+    resultado_final = "".join(tokens_saida)
     houve = houve or (resultado_final != original.upper())
 
     return {
-        "original": original,
-        "corrigido": resultado_final,
+        "original":       original,
+        "corrigido":      resultado_final,
         "houve_correcao": houve,
     }

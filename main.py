@@ -19,7 +19,7 @@ from src.pdf_reader import read_pdf
 from src.extractor_pv import extract_pv
 from src.pdf_to_image import pdf_page_to_image
 from src.arrow_detector import ArrowDetector
-from src.association_engine import get_text_near_destination
+from src.association_engine import get_text_near_destination, get_metragem_extendida
 from src.excel_exporter import export_excel
 from src.drawing_debug import create_debug_image
 from src.info_parser import parse_metragem, parse_material, parse_altura_poste
@@ -176,7 +176,16 @@ def process_pdf(pdf_path: str) -> list[dict]:
 
         # ── Extracao especifica por tipo ──────────────────────────────────────
         if tipo == "VAO":
-            metragem     = parse_metragem(textos)
+            metragem = parse_metragem(textos)
+            # Problema 5: metragem pode estar num token separado fora do raio primario
+            # Tenta tambem a metragem colada ao codigo do vao (ex: "V4-59.26m")
+            if not metragem and pv.get("metragem_colada"):
+                metragem = pv["metragem_colada"]
+            # Ultimo fallback: busca metragem em raio maior
+            if not metragem:
+                metragem = get_metragem_extendida(
+                    words, dest_x / scale, dest_y / scale, page=page
+                )
             material     = ""
             altura_poste = ""
         else:  # POSTE
@@ -223,36 +232,6 @@ def process_pdf(pdf_path: str) -> list[dict]:
 
     return resultado
 
-# ── Chamada automatica do atualizador de dicionario ──────────────────────────
-
-def atualizar_dicionario_pos_execucao() -> None:
-    """
-    Roda atualizar_dicionario.py --auto automaticamente apos processar todos os PDFs.
-    Tokens novos (score < 70) sao adicionados sem perguntar.
-    Tokens ambiguos (score >= 70) sao listados para revisao manual.
-    """
-    import subprocess
-
-    script = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        "atualizar_dicionario.py"
-    )
-
-    if not os.path.exists(script):
-        logger.warning("atualizar_dicionario.py nao encontrado.")
-        return
-
-    logger.info("Atualizando dicionario.json com tokens novos...")
-
-    try:
-        subprocess.run(
-            [sys.executable, script, "--auto"],
-            check=False,
-            timeout=60
-        )
-    except Exception as e:
-        logger.warning("Falha ao atualizar dicionario: %s", e)
-
 
 # ── Orquestrador principal ────────────────────────────────────────────────────
 
@@ -263,74 +242,54 @@ def main() -> None:
         logger.warning("Nenhum PDF encontrado em: %s", INPUT_DIR)
         return
 
-    logger.info(
-        "Obras encontradas: %d | PDFs totais: %d",
-        len(grupos),
-        sum(len(v) for v in grupos.values())
-    )
+    logger.info("Obras encontradas: %d | PDFs totais: %d",
+                len(grupos), sum(len(v) for v in grupos.values()))
 
     for obra, pdf_paths in sorted(grupos.items()):
-        logger.info(
-            "=== Processando obra %s (%d PDF(s)) ===",
-            obra,
-            len(pdf_paths)
-        )
+        logger.info("=== Processando obra %s (%d PDF(s)) ===", obra, len(pdf_paths))
 
         todos_resultados: list[dict] = []
-
         for pdf_path in pdf_paths:
             try:
                 parcial = process_pdf(pdf_path)
                 todos_resultados.extend(parcial)
-
             except Exception as exc:
-                logger.error(
-                    "Erro ao processar %s: %s",
-                    pdf_path,
-                    exc,
-                    exc_info=True
-                )
+                logger.error("  Erro ao processar %s: %s", pdf_path, exc, exc_info=True)
 
-        excel_name = f"{obra}.xlsx"
+        excel_name  = f"{obra}.xlsx"
         output_file = os.path.join(OUTPUT_DIR, excel_name)
+        export_excel(todos_resultados, output_file)
+        logger.info("  Excel gerado: %s (%d registros)", excel_name, len(todos_resultados))
+        print(f"EXCEL_GERADO:{output_file}")
 
-        try:
-            export_excel(todos_resultados, output_file)
-
-            logger.info(
-                "Excel gerado: %s (%d registros)",
-                excel_name,
-                len(todos_resultados)
-            )
-
-            print(f"EXCEL_GERADO:{output_file}", flush=True)
-
-        except Exception as exc:
-            logger.error(
-                "Erro ao gerar Excel %s: %s",
-                output_file,
-                exc,
-                exc_info=True
-            )
-
+    # Resumo final de tokens desconhecidos
     if _tokens_ja_logados:
         logger.info(
             "Tokens nao reconhecidos nesta execucao: %d — veja %s",
             len(_tokens_ja_logados),
             TOKENS_NAO_RECONHECIDOS_LOG,
         )
-
-        try:
-            atualizar_dicionario_pos_execucao()
-        except Exception as e:
-            logger.warning(
-                "Falha ao atualizar dicionario automaticamente: %s",
-                e
-            )
-
+        # Atualiza dicionario.json automaticamente com tokens novos
+        atualizar_dicionario_pos_execucao()
     else:
         logger.info("Nenhum token desconhecido encontrado.")
 
 
 if __name__ == "__main__":
     main()
+
+
+# ── Chamada automatica do atualizador de dicionario ──────────────────────────
+
+def atualizar_dicionario_pos_execucao() -> None:
+    """
+    Roda atualizar_dicionario.py --auto automaticamente apos processar todos os PDFs.
+    Tokens novos (score < 70) sao adicionados sem perguntar.
+    Tokens ambiguos (score >= 70) sao listados para revisao manual.
+    """
+    import subprocess
+    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atualizar_dicionario.py")
+    if not os.path.exists(script):
+        return
+    logger.info("Atualizando dicionario.json com tokens novos...")
+    subprocess.run([sys.executable, script, "--auto"], check=False)
