@@ -37,6 +37,9 @@ _COLUMN_ORDER = [
     "folha",
     "tipo",
     "codigo",
+    "logradouro",
+    "ancoragem",
+    "lado_forte",
     "metragem",
     "material",
     "altura_poste",
@@ -45,12 +48,14 @@ _COLUMN_ORDER = [
     "status",
     "corrigido",
 ]
-
 _COLUMN_LABELS = {
     "obra":         "Obra",
     "folha":        "Folha",
     "tipo":         "Tipo",
     "codigo":       "Código",
+    "logradouro":   "Rua / Avenida",
+    "ancoragem":    "Ancoragem",
+    "lado_forte":   "Lado Forte",
     "metragem":     "Metragem",
     "material":     "Material",
     "altura_poste": "Altura Poste",

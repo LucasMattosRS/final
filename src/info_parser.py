@@ -115,3 +115,43 @@ def parse_equipamentos(textos: list[str]) -> list[str]:
             if val not in equips:
                 equips.append(val)
     return equips
+
+import re
+
+_LOGRADOURO_RE = re.compile(
+    r"\b(AV\.?|AVENIDA|RUA|ROD\.?|RODOVIA|ESTRADA|ALAMEDA|TRAVESSA)\s+[A-Z0-9ÁÀÂÃÉÊÍÓÔÕÚÇ\- ]{3,30}",
+    re.IGNORECASE,
+)
+
+def parse_logradouro(textos):
+
+    for texto in textos:
+
+        texto = str(texto).strip()
+
+        m = _LOGRADOURO_RE.search(texto)
+
+        if m:
+            return m.group(0).upper().strip()
+
+    return ""
+
+def parse_ancoragem(textos: list[str]) -> str:
+    for t in textos:
+        t = str(t).upper().strip()
+
+        if "ANCORAR" in t:
+            partes = t.split("|")[0]  # pega só o primeiro bloco
+            return partes.strip()
+
+    return ""
+
+
+def parse_lado_forte(textos: list[str]) -> str:
+    for texto in textos:
+        t = str(texto).upper().strip()
+
+        if "LADO FORTE" in t or "LADO-FORTE" in t:
+            return t
+
+    return ""

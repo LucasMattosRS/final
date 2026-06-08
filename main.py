@@ -2,33 +2,61 @@
 Automacao de leitura de plantas eletricas/estruturais em PDF.
 
 Fluxo:
-  1. Agrupa PDFs por codigo de obra (prefixo numerico do nome do arquivo).
-  2. Para cada grupo, processa todos os PDFs e gera UM unico Excel por obra.
-  3. Dentro de cada PDF, detecta rotulos P (poste) e V (vao), segue a seta
-     ate o destino e extrai: metragem (V) ou material/altura (P).
+  1. Agrupa PDFs por codigo de obra.
+  2. Processa cada PDF.
+  3. Detecta POSTE (P) e VÃO (V).
+  4. Segue seta até destino e extrai informações.
 """
 
 import os
 import sys
+import re
 import logging
 from collections import defaultdict
-from config import AUDITORIA_DIR, TOKENS_NAO_RECONHECIDOS_LOG
-from config import INPUT_DIR, OUTPUT_DIR, DEBUG_DIR, LOG_DIR, PDF_RENDER_SCALE, ASSOCIATION_RADIUS
+
+from config import (
+    AUDITORIA_DIR,
+    TOKENS_NAO_RECONHECIDOS_LOG,
+    INPUT_DIR,
+    OUTPUT_DIR,
+    DEBUG_DIR,
+    LOG_DIR,
+    PDF_RENDER_SCALE,
+    ASSOCIATION_RADIUS,
+)
+
 from src.work_number import get_work_number, get_sheet_number
 from src.pdf_reader import read_pdf
 from src.extractor_pv import extract_pv
 from src.pdf_to_image import pdf_page_to_image
 from src.arrow_detector import ArrowDetector
-from src.association_engine import get_text_near_destination, get_metragem_extendida
+
+from src.association_engine import (
+    get_text_near_destination,
+    get_metragem_extendida,
+    agrupar_palavras,
+)
+
 from src.excel_exporter import export_excel
 from src.drawing_debug import create_debug_image
-from src.info_parser import parse_metragem, parse_material, parse_altura_poste
+
+from src.info_parser import (
+    parse_metragem,
+    parse_material,
+    parse_altura_poste,
+    parse_logradouro,
+    parse_ancoragem,
+    parse_lado_forte,
+)
+
 from src.confidence import calcular_confianca
 from src.auto_correct import corrigir_texto, DICIONARIO
-
 from rapidfuzz import process as fuzz_process
 
-# ── Logging ───────────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────
+# LOGGING
+# ─────────────────────────────────────────────
 os.makedirs(LOG_DIR, exist_ok=True)
 os.makedirs(DEBUG_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -37,259 +65,260 @@ os.makedirs(AUDITORIA_DIR, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)-8s %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
     handlers=[
         logging.FileHandler(os.path.join(LOG_DIR, "run.log"), encoding="utf-8"),
         logging.StreamHandler(),
     ],
 )
+
 logger = logging.getLogger(__name__)
 
-# Logger separado para tokens nao reconhecidos
-_token_logger = logging.getLogger("tokens_desconhecidos")
+
+# ─────────────────────────────────────────────
+# TOKENS DESCONHECIDOS
+# ─────────────────────────────────────────────
+_token_logger = logging.getLogger("tokens")
 _token_logger.setLevel(logging.INFO)
-_token_logger.propagate = False
-_tfh = logging.FileHandler(TOKENS_NAO_RECONHECIDOS_LOG, encoding="utf-8")
-_tfh.setFormatter(logging.Formatter("%(message)s"))
-_token_logger.addHandler(_tfh)
 
-# Conjunto em memoria para nao repetir o mesmo token no log da sessao
-_tokens_ja_logados: set[str] = set()
+handler = logging.FileHandler(TOKENS_NAO_RECONHECIDOS_LOG, encoding="utf-8")
+handler.setFormatter(logging.Formatter("%(message)s"))
+_token_logger.addHandler(handler)
+
+_tokens_ja_logados = set()
 
 
-def _logar_token_desconhecido(token: str, contexto: str) -> None:
-    """
-    Loga tokens que nao bateram no dicionario com score >= 82.
-    Evita duplicatas dentro da mesma execucao.
-    """
+def _logar_token(token: str, contexto: str):
     chave = token.upper()
     if chave in _tokens_ja_logados:
         return
     _tokens_ja_logados.add(chave)
 
-    # Tenta mostrar o candidato mais proximo mesmo abaixo do limiar
-    resultado = fuzz_process.extractOne(token, DICIONARIO)
+    result = fuzz_process.extractOne(token, DICIONARIO)
     sugestao = ""
-    if resultado:
-        texto, score, _ = resultado
-        sugestao = f" | melhor match: '{texto}' ({score:.0f}%)"
+    if result:
+        txt, score, _ = result
+        sugestao = f" | match: {txt} ({score:.0f}%)"
 
-    _token_logger.info("DESCONHECIDO | %s | contexto: %s%s", token, contexto, sugestao)
+    _token_logger.info(f"DESCONHECIDO | {token} | {contexto}{sugestao}")
 
 
-# ── Agrupamento de PDFs por obra ──────────────────────────────────────────────
+# ─────────────────────────────────────────────
+# REGEX LOGRADOURO
+# ─────────────────────────────────────────────
+_LOGRADOURO_RE = re.compile(
+    r"(RUA|AVENIDA|AV\.|ROD\.|RODOVIA|ESTRADA)\s+[A-Z0-9À-ÿ\.\- ]+",
+    re.IGNORECASE
+)
 
-def group_pdfs_by_obra(input_dir: str) -> dict[str, list[str]]:
-    grupos: dict[str, list[str]] = defaultdict(list)
-    for file_name in os.listdir(input_dir):
-        if not file_name.lower().endswith(".pdf"):
-            continue
-        full_path = os.path.join(input_dir, file_name)
-        obra = get_work_number(full_path)
-        grupos[obra].append(full_path)
 
-    for obra in grupos:
-        grupos[obra].sort(key=get_sheet_number)
+# ─────────────────────────────────────────────
+# AGRUPAMENTO DE PDFs
+# ─────────────────────────────────────────────
+def group_pdfs_by_obra(input_dir: str):
+    grupos = defaultdict(list)
+
+    for f in os.listdir(input_dir):
+        if f.lower().endswith(".pdf"):
+            path = os.path.join(input_dir, f)
+            obra = get_work_number(path)
+            grupos[obra].append(path)
+
+    for k in grupos:
+        grupos[k].sort(key=get_sheet_number)
 
     return dict(grupos)
 
 
-# ── Processamento de um unico PDF ─────────────────────────────────────────────
+# ─────────────────────────────────────────────
+# PROCESSAMENTO PDF
+# ─────────────────────────────────────────────
+def process_pdf(pdf_path: str):
 
-def process_pdf(pdf_path: str) -> list[dict]:
-    obra  = get_work_number(pdf_path)
+    obra = get_work_number(pdf_path)
     folha = get_sheet_number(pdf_path)
 
-    logger.info("  Lendo PDF: %s (obra=%s, folha=%d)", os.path.basename(pdf_path), obra, folha)
+    logger.info(f"Lendo {pdf_path} (obra={obra}, folha={folha})")
 
-    words    = read_pdf(pdf_path)
+    words = read_pdf(pdf_path)
     pv_items = extract_pv(words)
 
-    for item in pv_items:
-        item["info"] = ""
-
-    logger.info("  P/V encontrados: %d", len(pv_items))
-
     images = pdf_page_to_image(pdf_path, pages=[0])
-
-    if images:
-        auditoria_out = os.path.join(AUDITORIA_DIR, f"{obra}_folha{folha}_auditoria.png")
-        create_debug_image(images[0], pv_items, auditoria_out)
-        detector = ArrowDetector(images[0])
-    else:
-        logger.warning("  Nao foi possivel renderizar imagem de %s", pdf_path)
-        detector = None
+    detector = ArrowDetector(images[0]) if images else None
 
     resultado = []
-    scale = PDF_RENDER_SCALE
 
     for pv in pv_items:
 
-        tipo   = pv["tipo"]
-        codigo = pv["codigo"]
-        page   = pv["page"]
-        pv["info"] = ""
+        codigo = str(pv.get("codigo", "")).upper()
+        page = pv.get("page", 1)
+
+        # FIX POSTE / VÃO
+        if "V" in codigo and "P" not in codigo:
+            tipo = "VAO"
+        elif "P" in codigo or "POSTE" in codigo:
+            tipo = "POSTE"
+        else:
+            tipo = pv.get("tipo", "")
+            if tipo not in ("POSTE", "VAO"):
+                tipo = "POSTE" if "C" in codigo else "VAO"
 
         if detector is None:
-            logger.warning("  [%s] Detector indisponivel", codigo)
             continue
 
         line = detector.find_nearest_line(
-            pv["x"] * scale,
-            pv["y"] * scale
+            pv["x"] * PDF_RENDER_SCALE,
+            pv["y"] * PDF_RENDER_SCALE
         )
-        if line is None:
-            logger.warning("  [%s] Linha nao encontrada", codigo)
+
+        if not line:
             continue
 
-        destination = detector.line_destination(line, pv["x"] * scale, pv["y"] * scale)
-        if destination is None:
-            logger.warning("  [%s] Destino nao encontrado", codigo)
+        dest = detector.line_destination(
+            line,
+            pv["x"] * PDF_RENDER_SCALE,
+            pv["y"] * PDF_RENDER_SCALE
+        )
+
+        if not dest:
             continue
 
-        dest_x, dest_y = destination
+        dest_x, dest_y = dest
+
+        blocos = agrupar_palavras(words, page=page)
 
         textos = get_text_near_destination(
-            words,
-            dest_x / scale,
-            dest_y / scale,
+            blocos,
+            dest_x / PDF_RENDER_SCALE,
+            dest_y / PDF_RENDER_SCALE,
             radius=ASSOCIATION_RADIUS,
-            page=page,
+            tipo=tipo,
+            origin_x=pv["x"] * PDF_RENDER_SCALE,
+            origin_y=pv["y"] * PDF_RENDER_SCALE,
         )
 
-        # ── Correcao e log de tokens desconhecidos ────────────────────────────
-        novos_textos    = []
-        houve_correcao  = False
+        # ─────────────────────────────────────────────
+        # CORREÇÃO
+        # ─────────────────────────────────────────────
+        corrigidos = []
+        houve_correcao = False
 
         for t in textos:
-            res = corrigir_texto(t)
-            novos_textos.append(res["corrigido"])
-            if res["corrigido"] == t.upper():
-                # Token nao foi corrigido - verifica se e desconhecido
-                # (ignora numeros, metragens, codigos de obra e tokens muito curtos)
-                if len(t) >= 3 and not t.replace(".", "").replace(",", "").replace("m", "").isdigit():
-                    _logar_token_desconhecido(t, codigo)
-            if res["houve_correcao"]:
+            r = corrigir_texto(t)
+            corrigidos.append(r["corrigido"])
+            if r["houve_correcao"]:
                 houve_correcao = True
 
-        textos = novos_textos
+        textos = corrigidos
 
-        # ── Extracao especifica por tipo ──────────────────────────────────────
+        # ─────────────────────────────────────────────
+        # LIMPEZA (REMOVE LOGRADOURO + RUÍDOS)
+        # ─────────────────────────────────────────────
+        textos_limpos = []
+
+        for t in textos:
+            u = t.upper()
+
+            if "ANCORAR" in u:
+                continue
+            if "LADO FORTE" in u:
+                continue
+
+            # remove logradouro da coluna informações
+            if _LOGRADOURO_RE.search(t):
+                continue
+
+            textos_limpos.append(t)
+
+        # ─────────────────────────────────────────────
+        # EXTRAÇÃO
+        # ─────────────────────────────────────────────
         if tipo == "VAO":
-            metragem = parse_metragem(textos)
-            # Problema 5: metragem pode estar num token separado fora do raio primario
-            # Tenta tambem a metragem colada ao codigo do vao (ex: "V4-59.26m")
+            metragem = parse_metragem(textos_limpos)
+
             if not metragem and pv.get("metragem_colada"):
                 metragem = pv["metragem_colada"]
-            # Ultimo fallback: busca metragem em raio maior
+
             if not metragem:
                 metragem = get_metragem_extendida(
-                    words, dest_x / scale, dest_y / scale, page=page
+                    words,
+                    dest_x / PDF_RENDER_SCALE,
+                    dest_y / PDF_RENDER_SCALE,
+                    page=page,
                 )
-            material     = ""
-            altura_poste = ""
-        else:  # POSTE
-            metragem     = ""
-            material     = parse_material(textos)
-            altura_poste = parse_altura_poste(textos)
 
-        confianca = calcular_confianca(metragem, material, altura_poste, textos)
+            material = ""
+            altura_poste = ""
+
+        else:
+            metragem = ""
+            material = parse_material(textos_limpos)
+            altura_poste = parse_altura_poste(textos_limpos)
+
+        logradouro = parse_logradouro(textos_limpos)
+
+        ancoragem = parse_ancoragem(textos_limpos) if tipo == "POSTE" else ""
+        lado_forte = parse_lado_forte(textos_limpos) if tipo == "POSTE" else ""
+
+        confianca = calcular_confianca(
+            metragem,
+            material,
+            altura_poste,
+            textos_limpos,
+        )
 
         if houve_correcao:
             confianca += 5
+
         confianca = min(confianca, 100)
 
-        if confianca >= 80:
-            status = "APROVADO"
-        elif confianca >= 60:
-            status = "REVISAR"
-        else:
-            status = "CRITICO"
-
-        info_parts = []
-        if material:
-            info_parts.append(material)
-        if metragem:
-            info_parts.append(metragem)
-        if altura_poste:
-            info_parts.append(altura_poste)
-
-        pv["info"] = " | ".join(info_parts)
+        status = (
+            "APROVADO" if confianca >= 80 else
+            "REVISAR" if confianca >= 60 else
+            "CRITICO"
+        )
 
         resultado.append({
-            "obra":         obra,
-            "folha":        folha,
-            "tipo":         tipo,
-            "codigo":       codigo,
-            "metragem":     metragem,
-            "material":     material,
+            "obra": obra,
+            "folha": folha,
+            "tipo": tipo,
+            "codigo": codigo,
+            "logradouro": logradouro,
+            "ancoragem": ancoragem,
+            "lado_forte": lado_forte,
+            "metragem": metragem,
+            "material": material,
             "altura_poste": altura_poste,
-            "informacoes":  " | ".join(textos),
-            "confianca":    confianca,
-            "status":       status,
-            "corrigido":    "SIM" if houve_correcao else "NAO",
+            "informacoes": " | ".join(textos_limpos),
+            "confianca": confianca,
+            "status": status,
+            "corrigido": "SIM" if houve_correcao else "NAO",
         })
 
     return resultado
 
 
-# ── Chamada automatica do atualizador de dicionario ──────────────────────────
+# ─────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────
+def main():
 
-def atualizar_dicionario_pos_execucao() -> None:
-    """
-    Roda atualizar_dicionario.py --auto automaticamente apos processar todos os PDFs.
-    Tokens novos (score < 70) sao adicionados sem perguntar.
-    Tokens ambiguos (score >= 70) sao listados para revisao manual.
-    """
-    import subprocess
-    script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atualizar_dicionario.py")
-    if not os.path.exists(script):
-        return
-    logger.info("Atualizando dicionario.json com tokens novos...")
-    subprocess.run([sys.executable, script, "--auto"], check=False)
-
-# ── Orquestrador principal ────────────────────────────────────────────────────
-
-def main() -> None:
     grupos = group_pdfs_by_obra(INPUT_DIR)
 
-    if not grupos:
-        logger.warning("Nenhum PDF encontrado em: %s", INPUT_DIR)
-        return
+    for obra, pdfs in grupos.items():
 
-    logger.info("Obras encontradas: %d | PDFs totais: %d",
-                len(grupos), sum(len(v) for v in grupos.values()))
+        todos = []
 
-    for obra, pdf_paths in sorted(grupos.items()):
-        logger.info("=== Processando obra %s (%d PDF(s)) ===", obra, len(pdf_paths))
-
-        todos_resultados: list[dict] = []
-        for pdf_path in pdf_paths:
+        for pdf in pdfs:
             try:
-                parcial = process_pdf(pdf_path)
-                todos_resultados.extend(parcial)
-            except Exception as exc:
-                logger.error("  Erro ao processar %s: %s", pdf_path, exc, exc_info=True)
+                todos.extend(process_pdf(pdf))
+            except Exception as e:
+                logger.error(f"Erro {pdf}: {e}")
 
-        excel_name  = f"{obra}.xlsx"
-        output_file = os.path.join(OUTPUT_DIR, excel_name)
-        export_excel(todos_resultados, output_file)
-        logger.info("  Excel gerado: %s (%d registros)", excel_name, len(todos_resultados))
-        print(f"EXCEL_GERADO:{output_file}")
+        out = os.path.join(OUTPUT_DIR, f"{obra}.xlsx")
+        export_excel(todos, out)
 
-    # Resumo final de tokens desconhecidos
-    if _tokens_ja_logados:
-        logger.info(
-            "Tokens nao reconhecidos nesta execucao: %d — veja %s",
-            len(_tokens_ja_logados),
-            TOKENS_NAO_RECONHECIDOS_LOG,
-        )
-        # Atualiza dicionario.json automaticamente com tokens novos
-        atualizar_dicionario_pos_execucao()
-    else:
-        logger.info("Nenhum token desconhecido encontrado.")
+        print(f"EXCEL_GERADO:{out}")
 
 
 if __name__ == "__main__":
     main()
-
