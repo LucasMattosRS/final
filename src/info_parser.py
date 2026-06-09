@@ -136,22 +136,43 @@ def parse_logradouro(textos):
 
     return ""
 
+_ANCOR_RE   = re.compile(r"ANCOR", re.IGNORECASE)          # ANCORAR/ANCORAGEM/ANCORADO
+_COD_NUM_RE = re.compile(r"\b(\d{5,})\b")                  # código tipo 4008661
+# "LADO FORTE", "LADO-FORTE", com direção opcional logo a seguir (NORTE, SUL, ...)
+_LADO_FORTE_RE = re.compile(
+    r"LADO[\s\-]*FORTE(?:\s+([A-ZÀ-Ÿ]+))?",
+    re.IGNORECASE,
+)
+
+
 def parse_ancoragem(textos: list[str]) -> str:
-    for t in textos:
-        t = str(t).upper().strip()
-
-        if "ANCORAR" in t:
-            partes = t.split("|")[0]  # pega só o primeiro bloco
-            return partes.strip()
-
+    """
+    Retorna um flag limpo de ancoragem:
+      - 'SIM (4008661)' quando há código logo após ANCORAR
+      - 'SIM'           quando há ancoragem mas sem código
+      - ''              quando não há menção
+    """
+    for texto in textos:
+        s = str(texto)
+        m = _ANCOR_RE.search(s)
+        if m:
+            depois = s[m.end():]
+            cod = _COD_NUM_RE.search(depois)
+            return f"SIM ({cod.group(1)})" if cod else "SIM"
     return ""
 
 
 def parse_lado_forte(textos: list[str]) -> str:
+    """
+    Extrai o LADO FORTE quando ele está escrito na planta.
+    Junta 'LADO' + 'FORTE' mesmo que tenham sido separados no agrupamento.
+    Retorna a direção (ex.: 'NORTE') quando informada, senão 'SIM'.
+    Obs.: muitas plantas não trazem este dado escrito — nesse caso fica vazio.
+    """
     for texto in textos:
-        t = str(texto).upper().strip()
-
-        if "LADO FORTE" in t or "LADO-FORTE" in t:
-            return t
-
+        s = str(texto)
+        m = _LADO_FORTE_RE.search(s)
+        if m:
+            direcao = (m.group(1) or "").strip().upper()
+            return direcao if direcao else "SIM"
     return ""

@@ -4928,3 +4928,24 @@ UnboundLocalError: cannot access local variable 't' where it is not associated w
 2026-06-08 16:01:38,350 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': Mapeamento - Jardim Belém_Desenho 1_2.pdf → usando 'Mapeamento - Jardim Belém' como código de obra.
 2026-06-08 16:01:38,351 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\Mapeamento - Jardim Belém_Desenho 1_2.pdf (obra=Mapeamento - Jardim Belém, folha=1)
 2026-06-08 16:01:41,016 WARNING  Sem dados para exportar em C:\Users\Satel SP\Desktop\final\output_excel\Mapeamento - Jardim Belém.xlsx
+2026-06-09 11:08:23,776 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-09 11:08:23,777 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 15777446_Desenho 1_2-VIABILIDADE.pdf → usando '15777446' como código de obra.
+2026-06-09 11:08:23,778 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': Mapeamento - Jardim Belém_Desenho 1_2.pdf → usando 'Mapeamento - Jardim Belém' como código de obra.
+2026-06-09 11:08:23,778 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\13786024_Desenho 1_1.pdf (obra=13786024, folha=1)
+2026-06-09 11:08:24,481 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\13786024_folha1_debug.png
+2026-06-09 11:08:35,736 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\13786024.xlsx (7 linhas)
+2026-06-09 11:08:35,736 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\13786025_Desenho 1_1.pdf (obra=13786025, folha=1)
+2026-06-09 11:08:36,191 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\13786025_folha1_debug.png
+2026-06-09 11:08:46,510 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\13786025.xlsx (3 linhas)
+2026-06-09 11:08:46,510 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\14858611_Desenho 2_1.pdf (obra=14858611, folha=1)
+2026-06-09 11:08:48,237 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\14858611_folha1_debug.png
+2026-06-09 11:09:54,959 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14858611.xlsx (27 linhas)
+2026-06-09 11:09:54,959 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-09 11:09:54,959 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\14944161_Desenho 1_3 - Copia.pdf (obra=14944161, folha=1)
+2026-06-09 11:09:55,781 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\14944161_folha1_debug.png
+2026-06-09 11:10:46,068 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\14944161_Desenho 1_3.pdf (obra=14944161, folha=3)
+2026-06-09 11:10:47,626 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\14944161_folha3_debug.png
+2026-06-09 11:11:40,428 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\14944161.xlsx (16 linhas)
+2026-06-09 11:11:40,429 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 15777446_Desenho 1_2-VIABILIDADE.pdf → usando '15777446' como código de obra.
+2026-06-09 11:11:40,429 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\15777446_Desenho 1_2-VIABILIDADE.pdf (obra=15777446, folha=1)
+2026-06-09 11:11:43,212 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\15777446_folha1_debug.png

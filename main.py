@@ -145,6 +145,18 @@ def process_pdf(pdf_path: str):
     images = pdf_page_to_image(pdf_path, pages=[0])
     detector = ArrowDetector(images[0]) if images else None
 
+    # ─────────────────────────────────────────────
+    # AUDITORIA: imagem de debug com os pontos P/V detectados
+    # (esta chamada estava ausente — por isso parou de gerar imagens)
+    # ─────────────────────────────────────────────
+    if images:
+        debug_out = os.path.join(DEBUG_DIR, f"{obra}_folha{folha}_debug.png")
+        try:
+            create_debug_image(images[0], pv_items, debug_out)
+            logger.info(f"Imagem de auditoria gerada: {debug_out}")
+        except Exception as e:
+            logger.error(f"Falha ao gerar imagem de auditoria: {e}")
+
     resultado = []
 
     for pv in pv_items:
@@ -211,16 +223,27 @@ def process_pdf(pdf_path: str):
         textos = corrigidos
 
         # ─────────────────────────────────────────────
-        # LIMPEZA (REMOVE LOGRADOURO + RUÍDOS)
+        # EXTRAÇÃO DOS CAMPOS DEDICADOS
+        # Feita sobre a lista COMPLETA (antes da limpeza), senão os textos
+        # de logradouro/ancoragem/lado forte seriam removidos antes de
+        # serem lidos e as colunas ficariam sempre vazias.
+        # ─────────────────────────────────────────────
+        logradouro = parse_logradouro(textos)
+        ancoragem  = parse_ancoragem(textos) if tipo == "POSTE" else ""
+        lado_forte = parse_lado_forte(textos) if tipo == "POSTE" else ""
+
+        # ─────────────────────────────────────────────
+        # LIMPEZA (REMOVE O QUE JÁ FOI PARA COLUNA PRÓPRIA)
+        # Evita que logradouro/ancoragem/lado forte se repitam em "Informações".
         # ─────────────────────────────────────────────
         textos_limpos = []
 
         for t in textos:
             u = t.upper()
 
-            if "ANCORAR" in u:
+            if "ANCOR" in u:
                 continue
-            if "LADO FORTE" in u:
+            if "LADO FORTE" in u or "LADO-FORTE" in u:
                 continue
 
             # remove logradouro da coluna informações
@@ -253,11 +276,6 @@ def process_pdf(pdf_path: str):
             metragem = ""
             material = parse_material(textos_limpos)
             altura_poste = parse_altura_poste(textos_limpos)
-
-        logradouro = parse_logradouro(textos_limpos)
-
-        ancoragem = parse_ancoragem(textos_limpos) if tipo == "POSTE" else ""
-        lado_forte = parse_lado_forte(textos_limpos) if tipo == "POSTE" else ""
 
         confianca = calcular_confianca(
             metragem,

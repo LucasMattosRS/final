@@ -23,7 +23,7 @@ def create_debug_image(
         tipo = pv.get("tipo", "")
         codigo = pv.get("codigo", "")
 
-        if tipo == "P":
+        if tipo in ("P", "POSTE"):
             color = (0, 0, 255)
         else:
             color = (255, 0, 0)

@@ -79,25 +79,31 @@ _SEP_RE = re.compile(
 _NUMERO_RE = re.compile(r'^\d+([.,]\d+)?\s*[mM]?$')
 
 
+# Classes de transformador válidas (lista branca) — evita partir 112,5KVA em 1 + 12,5KVA
+_KVA_CLASSE = r'(?:112,5|37,5|150|300|25|45|75|15)\s*KVA'
+
+
 def _segmentar_token(token: str) -> list[str]:
     """
     Tenta separar um token colado em sub-tokens.
     Ex: "C12X600112,5KVAB4A" -> ["C12X600", "112,5KVA", "B4A"]
+    Usa lista branca das classes KVA para não fatiar o valor (112,5 -> 1 + 12,5).
     """
-    # Divide por padrao de inicio de codigo conhecido
     partes = re.split(
-        r'(?=[CM]\d{2}x)'           # inicio de poste  C12x / M10x
-        r'|(?=\d{2,3}[.,]\d+KVA)'  # transformador    112,5KVA
-        r'|(?=[SB]\d{2}[(\-])'     # classificacao    S44( / B4A
-        r'|(?=SM[DFLPIT]{2})'      # conjunto         SMFL / SMPI
-        r'|(?=CE[\d\-A])'           # classe eng       CE4 / CE-SH
-        r'|(?=ET\d)'                # equipamento      ET4A
-        r'|(?=PRE\d)'               # protecao         PRE4
-        r'|(?=BF-|CF-)',            # ferragem         BF-A / CF-H
+        r'(?=[CM]\d{2}[xX])'         # inicio de poste     C12x / M10x
+        r'|(?<=KVA)'                  # logo apos uma classe KVA -> novo token
+        r'|(?=' + _KVA_CLASSE + r')'  # antes de uma classe KVA
+        r'|(?=S\d{2}\()'             # classificacao       S44(
+        r'|(?=SM[A-Z]{2})'           # conjunto            SMFL / SMPI
+        r'|(?=CE[\dA\-])'             # classe eng          CE4 / CE-SH
+        r'|(?=ET\d)'                  # equipamento         ET4A
+        r'|(?=PRE\d)'                 # protecao            PRE4
+        r'|(?=BF-|CF-)'               # ferragem            BF-A / CF-H
+        r'|(?=B\dF)|(?=M\dF)|(?=M\dM)|(?=M\dA)'  # bracos/montagens
+        r'|(?=L\d\()',                # lampada             L1(
         token,
         flags=re.IGNORECASE,
     )
-    # Remove strings vazias e faz strip
     return [p.strip() for p in partes if p.strip()]
 
 
@@ -141,9 +147,10 @@ def corrigir_texto(texto: str) -> dict:
         sub_tokens = _segmentar_token(p)
 
         if len(sub_tokens) > 1:
-            # Era um token colado — corrige cada parte
+            # Era um token colado — corrige cada parte (junta com espaço para
+            # não confundir com a vírgula decimal de 112,5KVA)
             corrigidos = [corrigir_token(s) for s in sub_tokens]
-            tokens_saida.append(",".join(corrigidos))
+            tokens_saida.append(" ".join(corrigidos))
             houve = True
         else:
             corrigido = corrigir_token(p)
