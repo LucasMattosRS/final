@@ -1,0 +1,23 @@
+# Ambiente virtual (venv)
+venv/
+.venv/
+
+# PDFs de entrada
+input_pdf/
+
+# Arquivos compilados Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Saída gerada (Excel)
+output_excel/
+
+# Logs (se existir no projeto)
+*.log
+
+# Sistema / IDE
+.DS_Store
+.vscode/
+.idea/
