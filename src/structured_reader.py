@@ -10,7 +10,7 @@ toda a etapa de imagem/seta/heurística. Precisão ~100%, pois não há leitura
 visual envolvida.
 
 Formato esperado (colunas mínimas; nomes flexíveis — veja MAPA_COLUNAS):
-    obra, folha, tipo, codigo, logradouro, ancoragem, lado_forte,
+    obra, folha, tipo, codigo, logradouro, ancoragem,
     metragem, material, altura_poste
 
 Aceita .csv e .xlsx. Colunas ausentes viram vazio. Colunas extras são ignoradas.
@@ -31,7 +31,6 @@ MAPA_COLUNAS = {
     "codigo": ["codigo", "código", "id", "tag", "poste", "vao", "vão"],
     "logradouro": ["logradouro", "rua", "rua_avenida", "endereco", "endereço", "via"],
     "ancoragem": ["ancoragem", "ancora", "âncora", "estai"],
-    "lado_forte": ["lado_forte", "lado forte", "ladoforte", "lado"],
     "metragem": ["metragem", "vao_m", "comprimento", "distancia", "distância"],
     "material": ["material", "poste_material", "tipo_poste"],
     "altura_poste": ["altura_poste", "altura", "altura_m"],

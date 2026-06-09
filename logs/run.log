@@ -7,3 +7,10 @@
 2026-06-09 15:13:56,282 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\5232486_Desenho 1_2.pdf (obra=5232486, folha=2)
 2026-06-09 15:13:56,758 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\5232486_folha2_debug.png
 2026-06-09 15:14:03,859 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\5232486.xlsx (2 linhas)
+2026-06-09 15:26:49,561 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 14944161_Desenho 1_3 - Copia.pdf → usando '14944161' como código de obra.
+2026-06-09 15:26:49,562 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': 15777446_Desenho 1_2-VIABILIDADE.pdf → usando '15777446' como código de obra.
+2026-06-09 15:26:49,562 WARNING  Nome de arquivo fora do padrão esperado '<obra>_<desc>_<folha>.pdf': Mapeamento - Jardim Belém_Desenho 1_2.pdf → usando 'Mapeamento - Jardim Belém' como código de obra.
+2026-06-09 15:26:49,562 INFO     Processando apenas a obra 16704681 (1 folha(s)).
+2026-06-09 15:26:49,562 INFO     Lendo C:\Users\Satel SP\Desktop\final\input_pdf\16704681_Desenho 1_1.pdf (obra=16704681, folha=1)
+2026-06-09 15:26:50,763 INFO     Imagem de auditoria gerada: C:\Users\Satel SP\Desktop\final\debug\16704681_folha1_debug.png
+2026-06-09 15:27:15,976 INFO     Excel gerado: C:\Users\Satel SP\Desktop\final\output_excel\16704681.xlsx (14 linhas)

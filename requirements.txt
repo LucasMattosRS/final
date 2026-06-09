@@ -23,6 +23,7 @@ pluggy==1.6.0
 pycparser==3.0
 Pygments==2.20.0
 pypdfium2==5.9.0
+rapidfuzz==3.14.5
 pytest==9.0.3
 python-dateutil==2.9.0.post0
 six==1.17.0

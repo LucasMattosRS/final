@@ -118,31 +118,67 @@ def parse_equipamentos(textos: list[str]) -> list[str]:
 
 import re
 
+try:
+    from rapidfuzz import fuzz
+except ImportError:          # fuzzy é opcional; sem ele cai só no modo estrito
+    fuzz = None
+
+# Palavras-chave de logradouro. As >=3 letras entram também no modo tolerante.
 _LOGRADOURO_RE = re.compile(
-    r"\b(AV\.?|AVENIDA|RUA|ROD\.?|RODOVIA|ESTRADA|ALAMEDA|TRAVESSA)\s+[A-Z0-9ÁÀÂÃÉÊÍÓÔÕÚÇ\- ]{3,30}",
+    r"\b(AV\.?|AVENIDA|RUA|ROD\.?|RODOVIA|ESTRADA|ALAMEDA|TRAVESSA|PRA[CÇ]A|LARGO|VIELA)\s+"
+    r"[A-Z0-9ÁÀÂÃÉÊÍÓÔÕÚÇ\.\- ]{2,30}",
     re.IGNORECASE,
 )
+_KW_FUZZY = ("RUA", "AVENIDA", "RODOVIA", "ESTRADA", "ALAMEDA", "TRAVESSA")
+
+
+def _so_letras(token: str) -> str:
+    """Remove dígitos/ruído internos (ex.: 'RU2A' -> 'RUA', 'AVEN1DA' -> 'AVENDA')."""
+    return re.sub(r"[^A-Za-zÀ-ÿ]", "", token).upper()
+
+
+def detectar_logradouro(texto: str):
+    """
+    Devolve o logradouro encontrado no texto (normalizado) ou None.
+    1) tenta a forma limpa (regex);
+    2) se falhar, tenta uma forma tolerante a corrupção do OCR no nome da via
+       (ex.: 'ru2a', 'aven1da'), comparando token a token por similaridade.
+    Usado tanto para preencher a coluna quanto para tirar o texto de 'Informações'.
+    """
+    s = str(texto).strip()
+    if not s:
+        return None
+
+    m = _LOGRADOURO_RE.search(s)
+    if m:
+        return m.group(0).upper().strip()
+
+    if fuzz is None:
+        return None
+
+    toks = s.split()
+    for i, tok in enumerate(toks):
+        limpo = _so_letras(tok)
+        if len(limpo) < 3:           # evita falso positivo em tokens curtos (AV, etc.)
+            continue
+        for kw in _KW_FUZZY:
+            if fuzz.ratio(limpo, kw) >= 82:
+                resto = " ".join(toks[i + 1:i + 5]).strip()
+                if resto:            # precisa ter um nome de via depois
+                    return f"{kw} {resto}".upper().strip()
+    return None
+
 
 def parse_logradouro(textos):
-
     for texto in textos:
-
-        texto = str(texto).strip()
-
-        m = _LOGRADOURO_RE.search(texto)
-
-        if m:
-            return m.group(0).upper().strip()
-
+        achado = detectar_logradouro(texto)
+        if achado:
+            return achado
     return ""
+
 
 _ANCOR_RE   = re.compile(r"ANCOR", re.IGNORECASE)          # ANCORAR/ANCORAGEM/ANCORADO
 _COD_NUM_RE = re.compile(r"\b(\d{5,})\b")                  # código tipo 4008661
-# "LADO FORTE", "LADO-FORTE", com direção opcional logo a seguir (NORTE, SUL, ...)
-_LADO_FORTE_RE = re.compile(
-    r"LADO[\s\-]*FORTE(?:\s+([A-ZÀ-Ÿ]+))?",
-    re.IGNORECASE,
-)
 
 
 def parse_ancoragem(textos: list[str]) -> str:
@@ -159,20 +195,4 @@ def parse_ancoragem(textos: list[str]) -> str:
             depois = s[m.end():]
             cod = _COD_NUM_RE.search(depois)
             return f"SIM ({cod.group(1)})" if cod else "SIM"
-    return ""
-
-
-def parse_lado_forte(textos: list[str]) -> str:
-    """
-    Extrai o LADO FORTE quando ele está escrito na planta.
-    Junta 'LADO' + 'FORTE' mesmo que tenham sido separados no agrupamento.
-    Retorna a direção (ex.: 'NORTE') quando informada, senão 'SIM'.
-    Obs.: muitas plantas não trazem este dado escrito — nesse caso fica vazio.
-    """
-    for texto in textos:
-        s = str(texto)
-        m = _LADO_FORTE_RE.search(s)
-        if m:
-            direcao = (m.group(1) or "").strip().upper()
-            return direcao if direcao else "SIM"
     return ""

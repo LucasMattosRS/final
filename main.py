@@ -46,7 +46,7 @@ from src.info_parser import (
     parse_altura_poste,
     parse_logradouro,
     parse_ancoragem,
-    parse_lado_forte,
+    detectar_logradouro,
 )
 
 from src.confidence import calcular_confianca
@@ -230,11 +230,10 @@ def process_pdf(pdf_path: str):
         # ─────────────────────────────────────────────
         logradouro = parse_logradouro(textos)
         ancoragem  = parse_ancoragem(textos) if tipo == "POSTE" else ""
-        lado_forte = parse_lado_forte(textos) if tipo == "POSTE" else ""
 
         # ─────────────────────────────────────────────
         # LIMPEZA (REMOVE O QUE JÁ FOI PARA COLUNA PRÓPRIA)
-        # Evita que logradouro/ancoragem/lado forte se repitam em "Informações".
+        # Evita que logradouro/ancoragem se repitam em "Informações".
         # ─────────────────────────────────────────────
         textos_limpos = []
 
@@ -243,11 +242,10 @@ def process_pdf(pdf_path: str):
 
             if "ANCOR" in u:
                 continue
-            if "LADO FORTE" in u or "LADO-FORTE" in u:
-                continue
 
-            # remove logradouro da coluna informações
-            if _LOGRADOURO_RE.search(t):
+            # remove logradouro de "Informações" — usa o mesmo detector
+            # tolerante (pega também casos corrompidos tipo "ru2a")
+            if detectar_logradouro(t):
                 continue
 
             textos_limpos.append(t)
@@ -302,7 +300,6 @@ def process_pdf(pdf_path: str):
             "codigo": codigo,
             "logradouro": logradouro,
             "ancoragem": ancoragem,
-            "lado_forte": lado_forte,
             "metragem": metragem,
             "material": material,
             "altura_poste": altura_poste,
