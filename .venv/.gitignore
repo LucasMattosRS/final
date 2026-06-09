@@ -15,7 +15,7 @@ __pycache__/
 # =========================
 
 # PDFs de entrada (se forem testes ou dados locais)
-input_pdf/
+*input_pdf/
 *.pdf
 
 # Imagens geradas/intermediárias do OCR
@@ -28,7 +28,7 @@ images_tmp/
 *.bmp
 
 # Saídas do processamento
-output_excel/
+*output_excel/
 output/
 results/
 *.xlsx
@@ -49,7 +49,7 @@ tessdata/
 # =========================
 # Logs e debugging
 # =========================
-logs/
+*logs/
 *.log
 
 # =========================
