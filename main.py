@@ -318,25 +318,42 @@ def process_pdf(pdf_path: str):
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
-def main():
+def _processar_obra(obra: str, pdfs: list[str]) -> str:
+    """Processa todos os PDFs de uma obra e gera o Excel. Retorna o caminho."""
+    todos = []
+    for pdf in pdfs:
+        try:
+            todos.extend(process_pdf(pdf))
+        except Exception as e:
+            logger.error(f"Erro {pdf}: {e}")
 
+    out = os.path.join(OUTPUT_DIR, f"{obra}.xlsx")
+    export_excel(todos, out)
+    print(f"EXCEL_GERADO:{out}")
+    return out
+
+
+def main(pdf_alvo: str | None = None):
+    """
+    Sem argumento: processa TODAS as obras de input_pdf (modo lote).
+    Com um caminho de PDF: processa SOMENTE a obra daquele arquivo
+    (junta as folhas da mesma obra presentes em input_pdf), sem reprocessar
+    o resto da pasta.
+    """
     grupos = group_pdfs_by_obra(INPUT_DIR)
 
+    if pdf_alvo:
+        obra_alvo = get_work_number(pdf_alvo)
+        pdfs = grupos.get(obra_alvo, [pdf_alvo])
+        logger.info(f"Processando apenas a obra {obra_alvo} ({len(pdfs)} folha(s)).")
+        _processar_obra(obra_alvo, pdfs)
+        return
+
     for obra, pdfs in grupos.items():
-
-        todos = []
-
-        for pdf in pdfs:
-            try:
-                todos.extend(process_pdf(pdf))
-            except Exception as e:
-                logger.error(f"Erro {pdf}: {e}")
-
-        out = os.path.join(OUTPUT_DIR, f"{obra}.xlsx")
-        export_excel(todos, out)
-
-        print(f"EXCEL_GERADO:{out}")
+        _processar_obra(obra, pdfs)
 
 
 if __name__ == "__main__":
-    main()
+    # aceita: python main.py  (lote)  |  python main.py "caminho/arquivo.pdf"
+    alvo = sys.argv[1] if len(sys.argv) > 1 else None
+    main(alvo)

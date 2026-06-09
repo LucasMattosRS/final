@@ -1,59 +1,45 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Dashboard</h1>
+<p class="eyebrow">Visão geral</p>
+<h1>Painel</h1>
+<p class="lede">Resumo dos projetos processados pelo sistema de auditoria.</p>
 
-<div class="row">
-
-<div class="col-md-4">
-
-<div class="card shadow">
-
-<div class="card-body">
-
-<h5>PDFs Processados</h5>
-
-<h2>{{ total_pdf }}</h2>
-
+<div class="stats">
+  <div class="stat">
+    <span class="stat__label">Projetos processados</span>
+    <span class="stat__value">{{ total_pdf }}</span>
+  </div>
+  <div class="stat">
+    <span class="stat__label">Planilhas geradas</span>
+    <span class="stat__value">{{ total_excel }}</span>
+  </div>
+  <div class="stat">
+    <span class="stat__label">Último processamento</span>
+    <span class="stat__value stat__value--sm">{{ ultimo }}</span>
+  </div>
 </div>
 
-</div>
+<div class="panel">
+  <div class="panel__head">
+    <h2>Últimos projetos</h2>
+    <a href="/historico" class="panel__hint" style="text-decoration:none">ver tudo →</a>
+  </div>
 
-</div>
-
-<div class="col-md-4">
-
-<div class="card shadow">
-
-<div class="card-body">
-
-<h5>Excels Gerados</h5>
-
-<div class="col-md-4">
-
-    <div class="card shadow">
-
-        <div class="card-body">
-
-            <h5>Tempo Médio</h5>
-
-            <h2>{{ tempo_medio }} s</h2>
-
-        </div>
-
-    </div>
-
-</div>
-
-<h2>{{ total_excel }}</h2>
-
-</div>
-
-</div>
-
-</div>
-
+  {% if ultimos %}
+  <div class="table-wrap" style="box-shadow:none">
+    <table class="table">
+      <thead><tr><th>PDF de origem</th><th>Planilha</th><th>Processado em</th></tr></thead>
+      <tbody>
+        {% for item in ultimos %}
+        <tr><td>{{ item.pdf }}</td><td>{{ item.excel }}</td><td class="text-muted">{{ item.data }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-muted" style="margin:0">Nenhum projeto processado ainda. Comece pela tela <b>Processar projeto</b>.</p>
+  {% endif %}
 </div>
 
 {% endblock %}

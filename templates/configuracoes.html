@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
+<p class="eyebrow">Ajustes</p>
 <h1>Configurações</h1>
+<p class="lede">Parâmetros de leitura e associação. Ajuste com base na medição de acerto.</p>
 
-<div class="card">
-
-<div class="card-body">
-
-Configurações futuras do OCR.
-
+<div class="panel">
+  <div class="panel__head">
+    <h2>Associação seta → texto</h2>
+    <span class="panel__hint">config.py</span>
+  </div>
+  <p class="text-muted" style="margin:0">
+    O raio de associação (<code style="font-family:'IBM Plex Mono'">ASSOCIATION_RADIUS</code>)
+    define o quão longe da seta o texto ainda é considerado do mesmo poste. Use
+    <code style="font-family:'IBM Plex Mono'">precisao/varrer_raio.py</code> para escolher o valor de maior acerto.
+  </p>
 </div>
 
+<div class="panel">
+  <div class="panel__head">
+    <h2>Dicionário de termos</h2>
+    <span class="panel__hint">dicionario.json</span>
+  </div>
+  <p class="text-muted" style="margin:0">
+    Lista de códigos e termos válidos usada na correção automática. Quanto mais
+    completo, menos ruído nas colunas de material e equipamento.
+  </p>
 </div>
 
 {% endblock %}

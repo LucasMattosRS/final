@@ -1,51 +1,32 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Processar PDF</h1>
+<p class="eyebrow">Intake de projeto</p>
+<h1>Processar projeto</h1>
+<p class="lede">Envie a planta do projeto em PDF. O sistema lê os postes e vãos,
+extrai logradouro, ancoragem e materiais, e devolve a planilha de auditoria.</p>
 
-<div id="dropzone">
+<div class="panel">
+  <div id="dropzone" onclick="document.getElementById('fileInput').click()">
+    <div class="intake__icon"><i class="bi bi-file-earmark-arrow-up"></i></div>
+    <h3>Solte o PDF aqui</h3>
+    <p>ou clique para escolher um arquivo do computador</p>
+    <input type="file" id="fileInput" accept=".pdf">
+    <div class="intake__file" id="arquivoEscolhido"><i class="bi bi-file-earmark-pdf"></i> <span></span></div>
+  </div>
 
-<i class="bi bi-cloud-upload fs-1"></i>
+  <div class="actions">
+    <button id="btnProcessar" type="button" class="btn btn-primary" onclick="enviarPDF()">
+      <i class="bi bi-lightning-charge"></i> Processar
+    </button>
+  </div>
 
-<h3>Arraste ou selecione um PDF</h3>
+  <div class="progress__row">
+    <span id="rotuloProgresso">Pronto para processar</span>
+  </div>
+  <div class="progress"><div id="barra" class="progress-bar" style="width:0%">0%</div></div>
 
-<input
-type="file"
-id="fileInput"
-accept=".pdf">
-
+  <div id="status"></div>
 </div>
-
-<br>
-
-<button
-id="btnProcessar"
-type="button"
-class="btn btn-primary"
-onclick="enviarPDF()">
-
-Processar
-
-</button>
-
-<br><br>
-
-<div class="progress">
-
-<div
-id="barra"
-class="progress-bar"
-style="width:0%">
-
-0%
-
-</div>
-
-</div>
-
-<br>
-
-<div id="status"></div>
 
 {% endblock %}

@@ -1,28 +1,17 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
+<p class="eyebrow">Registro</p>
 <h1>Histórico</h1>
+<p class="lede">Todos os projetos já processados e as planilhas geradas.</p>
 
-<table class="table table-striped">
-
-<thead>
-
-<tr>
-
-<th>PDF</th>
-<th>Excel</th>
-<th>Data</th>
-<th>Download</th>
-
-</tr>
-
-</thead>
-
-<tbody id="historico">
-
-</tbody>
-
-</table>
+<div class="table-wrap">
+  <table class="table">
+    <thead>
+      <tr><th>PDF de origem</th><th>Planilha</th><th>Processado em</th><th>Ação</th></tr>
+    </thead>
+    <tbody id="historico"></tbody>
+  </table>
+</div>
 
 {% endblock %}

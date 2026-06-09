@@ -57,9 +57,11 @@ def _run_job(job_id: str, nome_pdf: str) -> None:
 
     update("processando")
 
+    caminho_pdf = os.path.join(UPLOAD_FOLDER, nome_pdf)
+
     try:
         result = subprocess.run(
-            [sys.executable, "main.py"],
+            [sys.executable, "main.py", caminho_pdf],  # processa SÓ a obra enviada
             cwd=os.path.dirname(__file__),
             capture_output=True,
             text=True,
@@ -144,6 +146,22 @@ def _run_job(job_id: str, nome_pdf: str) -> None:
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/dashboard")
+def dashboard():
+    h = load_history()
+    total_pdf = len(h)
+    total_excel = len({item.get("excel") for item in h if item.get("excel")})
+    ultimo = h[-1]["data"] if h else "—"
+    ultimos = list(reversed(h))[:5]
+    return render_template(
+        "dashboard.html",
+        total_pdf=total_pdf,
+        total_excel=total_excel,
+        ultimo=ultimo,
+        ultimos=ultimos,
+    )
 
 
 @app.route("/processar")
