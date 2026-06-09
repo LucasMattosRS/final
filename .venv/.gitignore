@@ -1,23 +1,76 @@
-# Ambiente virtual (venv)
+# =========================
+# Ambiente Python
+# =========================
 venv/
 .venv/
+env/
 
-# PDFs de entrada
-input_pdf/
-
-# Arquivos compilados Python
-*.pyc
 __pycache__/
+*.pyc
 *.pyo
 *.pyd
 
-# Saída gerada (Excel)
-output_excel/
+# =========================
+# Entradas e Saídas do OCR
+# =========================
 
-# Logs (se existir no projeto)
+# PDFs de entrada (se forem testes ou dados locais)
+input_pdf/
+*.pdf
+
+# Imagens geradas/intermediárias do OCR
+temp_images/
+images_tmp/
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.bmp
+
+# Saídas do processamento
+output_excel/
+output/
+results/
+*.xlsx
+*.csv
+
+# =========================
+# OCR / Tesseract / OpenCV cache
+# =========================
+*.traineddata
+tessdata/
+*.box
+*.lstmf
+
+# Cache do OpenCV / PIL
+.opencv_cache/
+*.cache
+
+# =========================
+# Logs e debugging
+# =========================
+logs/
 *.log
 
+# =========================
+# Modelos (se usar IA/OCR avançado)
+# =========================
+models/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+
+# =========================
 # Sistema / IDE
+# =========================
 .DS_Store
 .vscode/
 .idea/
+
+# =========================
+# Arquivos temporários gerais
+# =========================
+tmp/
+temp/
+*.tmp
